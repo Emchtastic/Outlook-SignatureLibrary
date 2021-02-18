@@ -65,7 +65,7 @@
 
     <!-- Dropdown list of Signature titles -->
     <div class="dropdown">
-        <button onclick="myFunction()" class="dropbtn">Signature Dropdown List</button>
+        <button id="dropButton" class="dropbtn">Signature Dropdown List</button>
         <div id="dropList" class="dropdown-content">
         </div>
       </div>
@@ -83,15 +83,6 @@
 
 <script>
     var signatureList = []
-
-    document.getElementById("addToDrop").onclick  = function() {
-
-        var node = document.createElement("Li");
-        var text = document.getElementById("title_input").value; 
-        var textnode=document.createTextNode(text);
-        node.appendChild(textnode);
-        document.getElementById("dropList").appendChild(node);
-    }
 
     document.getElementById("addToList").onclick  = function() {
 
@@ -120,24 +111,6 @@
     function removeLastInListFunction() {
         var x = document.getElementById("sigList");
         x.removeChild(x.lastElementChild);
-    }
-
-    function myFunction() {
-        document.getElementById("dropList").classList.toggle("show");
-    }
-
-    // Close the dropdown menu if the user clicks outside of it
-    window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-            openDropdown.classList.remove('show');
-                }
-            }
-        }
     }
 </script>
 
