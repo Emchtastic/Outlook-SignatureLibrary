@@ -8,17 +8,42 @@ import "../../assets/icon-16.png";
 import "../../assets/icon-32.png";
 import "../../assets/icon-80.png";
 
+var signatureList = []
+
 
 Office.onReady(info => {
 	if (info.host === Office.HostType.Outlook) {
 		document.getElementById("addToDrop").onclick = addToDroplist;
 		document.getElementById("dropButton").onclick = myFunction;
+		document.getElementById("removeLast").onclick = removeLastInList;
+		document.getElementById("addToLib").onclick  = addToLib;
+		document.getElementById("showLib").onclick  = showLibrary;
+
   
 	}
 });
 
-function addToDroplist() {
+function addToLib() {
+	var newSignature = {title : document.getElementById("title_input").value, 
+        message : document.getElementById("message_input").value
+        }
 
+        signatureList.push(newSignature)
+}
+
+function showLibrary() {
+
+	for (i = 0; i < signatureList.length; i++) {
+		var signature = signatureList[i]
+		var line = ""
+
+		line.append
+	}
+
+	document.getElementById("Library").innerHTML 
+}
+
+function addToDroplist() {
 	var node = document.createElement("Li");
 	var text = document.getElementById("title_input").value; 
 	var textnode=document.createTextNode(text);
@@ -28,6 +53,11 @@ function addToDroplist() {
 
 function myFunction() {
 	document.getElementById("dropList").classList.toggle("show");
+}
+
+function removeLastInList() {
+	var x = document.getElementById("dropList");
+	x.removeChild(x.lastElementChild);
 }
 
 // Close the dropdown menu if the user clicks outside of it
