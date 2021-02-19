@@ -32,15 +32,7 @@ function addToLib() {
 }
 
 function showLibrary() {
-
-	for (i = 0; i < signatureList.length; i++) {
-		var signature = signatureList[i]
-		var line = ""
-
-		line.append
-	}
-
-	document.getElementById("Library").innerHTML 
+	// Need method for window to pop up with signatureList elements
 }
 
 function addToDroplist() {
@@ -56,6 +48,7 @@ function myFunction() {
 }
 
 function removeLastInList() {
+	// Removes the last element in the dropList
 	var x = document.getElementById("dropList");
 	x.removeChild(x.lastElementChild);
 }
