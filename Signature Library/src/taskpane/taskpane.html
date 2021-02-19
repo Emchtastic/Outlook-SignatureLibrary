@@ -26,13 +26,11 @@
         <h1 class="ms-font-su">The Signature Library</h1>
     </header>
     <section id="sideload-msg" class="ms-welcome__main">
-        <h2 class="ms-font-xl">Please sideload your add-in to see app body.</h2>
+        <h2 class="ms-font-xl">Let's add some signatures!</h2>
     </section>
     <main id="app-body" class="ms-welcome__main" style="display: none;">
-        <h2 class="ms-font-xl"> Let's add some signatures! </h2>
+        <h2 class="ms-font-xl"></h2>
         <p><label id="item-subject"></label></p>
-        
-        
     </main>
     
     Signature Title: <input type='text' id='title_input' />
@@ -43,103 +41,36 @@
 
     <br><br>
 
-    <input type='button' value='Add to Library' id='addToLib' />
+    <input type='button' value='Add to new signature to library' id='addToLib' />
 
     <br><br>
 
-    <input type='button' value='Add to droplist' id='addToDrop' />
-
-    <br><br>
-
-    <input type='button' value='Add to list' id='addToList' />
-
-    <br><br>
-
-    <input type='button' value='Show current library' id='showLib' />
+    <input type='button' value='Open current signature library' id='showLib' />
 
     <br><br>
     
-    <button type="button" onclick="removeLastInListFunction()">Delete last signature in list</button>
+    <button type="button" id="removeLast">Delete last signature in list</button>
 
     <br><br><br><br>
 
     <!-- Dropdown list of Signature titles -->
     <div class="dropdown">
-        <button onclick="myFunction()" class="dropbtn">Signature Dropdown List</button>
+        <button id="dropButton" class="dropbtn">Choose a signature to apply to email</button>
         <div id="dropList" class="dropdown-content">
         </div>
       </div>
     <br><br>
 
     <!-- Visible list of Signature titles -->
-    <form>
-        Current Signatures:
-        <br>
-        <ul id="sigList" size="4">
-        </ul>
-    </form>
+    <section id="LibraryHeader">
+        Current Library:</h2>
+    </section>
+    <section id="Library">
+        </h2>
+    </section>
+    
     <br>
 
-
-<script>
-    var signatureList = []
-
-    document.getElementById("addToDrop").onclick  = function() {
-
-        var node = document.createElement("Li");
-        var text = document.getElementById("title_input").value; 
-        var textnode=document.createTextNode(text);
-        node.appendChild(textnode);
-        document.getElementById("dropList").appendChild(node);
-    }
-
-    document.getElementById("addToList").onclick  = function() {
-
-        var ul = document.getElementById("sigList");
-        var li = document.createElement("li");
-        var text = document.getElementById("title_input").value;
-        li.appendChild(document.createTextNode(text));
-        ul.appendChild(li);
-        
-    }
-
-    document.getElementById("addToLib").onclick  = function() { 
-
-        var newSignature = {title : document.getElementById("title_input").value, 
-        message : document.getElementById("message_input").value
-        }
-
-        signatureList.push(newSignature)
-        
-    }
-
-    document.getElementById("showLib").onclick  = function() {
-        document.getElementById("item-subject").innerHTML = "<b>Current Library: </b>" + "<br>" + JSON.stringify(signatureList) 
-    }
-
-    function removeLastInListFunction() {
-        var x = document.getElementById("sigList");
-        x.removeChild(x.lastElementChild);
-    }
-
-    function myFunction() {
-        document.getElementById("dropList").classList.toggle("show");
-    }
-
-    // Close the dropdown menu if the user clicks outside of it
-    window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-            openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }
-</script>
 
 </body>
 </html>
