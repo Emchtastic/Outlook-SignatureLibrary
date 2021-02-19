@@ -13,7 +13,6 @@ var signatureList = []
 
 Office.onReady(info => {
 	if (info.host === Office.HostType.Outlook) {
-		document.getElementById("addToDrop").onclick = addToDroplist;
 		document.getElementById("dropButton").onclick = myFunction;
 		document.getElementById("removeLast").onclick = removeLastInList;
 		document.getElementById("addToLib").onclick  = addToLib;
@@ -29,18 +28,17 @@ function addToLib() {
         }
 
         signatureList.push(newSignature)
-}
-
-function showLibrary() {
-	// Need method for window to pop up with signatureList elements
-}
-
-function addToDroplist() {
+	
 	var node = document.createElement("Li");
 	var text = document.getElementById("title_input").value; 
 	var textnode=document.createTextNode(text);
 	node.appendChild(textnode);
 	document.getElementById("dropList").appendChild(node);
+}
+
+function showLibrary() {
+	// Need method for window to pop up with signatureList elements
+	document.getElementById("Library").innerHTML = JSON.stringify(signatureList)
 }
 
 function myFunction() {
