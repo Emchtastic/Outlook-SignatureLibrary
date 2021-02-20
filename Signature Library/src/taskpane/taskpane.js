@@ -19,6 +19,7 @@ Office.onReady(info => {
 		document.getElementById("removeLast").onclick = removeLastInList;
 		document.getElementById("addToLib").onclick  = addToLib;
 		document.getElementById("showLib").onclick  = showLibrary;
+		document.getElementById("applySignatureButton").onclick  = pass;
 
   
 	}
@@ -51,8 +52,10 @@ function showLibrary() {
 
 function removeLastInList() {
 	// Removes the last element in the dropList
-	var x = document.getElementById("signature");
-	x.removeChild(x.lastElementChild);
+	var x = signatureList
+	x.pop();
+
+	showLibrary();
 }
 
 
