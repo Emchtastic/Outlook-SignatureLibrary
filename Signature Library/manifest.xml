@@ -79,7 +79,7 @@
         <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/taskpane.html"/>
       </bt:Urls>
       <bt:ShortStrings>
-        <bt:String id="GroupLabel" DefaultValue="Git the gist"/>
+        <bt:String id="GroupLabel" DefaultValue="Signature Library"/>
         <bt:String id="SigLibButton.Label" DefaultValue="Open Signature Library"/>
         <bt:String id="SigLibButton.Title" DefaultValue="Open Signature Library"/>
       </bt:ShortStrings>
