@@ -8,7 +8,7 @@ import "../../assets/icon-16.png";
 import "../../assets/icon-32.png";
 import "../../assets/icon-80.png";
 
-var signatureList = []
+var signatureList = ["HI"]
 
 
 Office.onReady(info => {
@@ -28,17 +28,11 @@ function addToLib() {
         }
 
         signatureList.push(newSignature)
-	
-	var node = document.createElement("Li");
-	var text = document.getElementById("title_input").value; 
-	var textnode=document.createTextNode(text);
-	node.appendChild(textnode);
-	document.getElementById("dropList").appendChild(node);
 }
 
 function showLibrary() {
 	// Need method for window to pop up with signatureList elements
-	document.getElementById("Library").innerHTML = JSON.stringify(signatureList)
+	document.getElementById("Library").innerHTML = "cat"
 }
 
 function myFunction() {

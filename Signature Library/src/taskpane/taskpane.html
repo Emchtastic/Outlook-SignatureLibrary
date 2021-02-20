@@ -54,12 +54,17 @@
     <br><br><br><br>
 
     <!-- Dropdown list of Signature titles -->
-    <div class="dropdown">
-        <button id="dropButton" class="dropbtn">Choose a signature to apply to email</button>
-        <option id="dropList" class="dropdown-content">
-        </option>
-    </div>
-    <br><br>
+
+    <form id="dropDownList">
+        <label for="signature">Choose your signature from the list:</label>
+        <input list="signatures" name="signature" id="signature">
+        <datalist id="signatures">
+          <option value="Default">
+        </datalist>
+        <input id="applySignatureButton" type="submit" value="Apply signature">
+      </form>
+
+      <br><br>
 
     <!-- Visible list of Signature titles -->
     <section id="LibraryHeader">
@@ -73,6 +78,9 @@
 
 
 </body>
+
+<script src="https://appsforoffice.microsoft.com/lib/1/hosted/Office.js" type="text/javascript"></script>
+
 </html>
 
 <!-- Referenced code: https://stackoverflow.com/questions/19908215/adding-user-input-to-a-list-of-text-items-on-a-html-page/42950658 -->
