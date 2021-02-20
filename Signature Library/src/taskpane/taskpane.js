@@ -8,12 +8,14 @@ import "../../assets/icon-16.png";
 import "../../assets/icon-32.png";
 import "../../assets/icon-80.png";
 
-var signatureList = ["HI"]
+var signatureList = [{
+	title : "Default",
+	message : "I've got nothing"
+}]
 
 
 Office.onReady(info => {
 	if (info.host === Office.HostType.Outlook) {
-		document.getElementById("dropButton").onclick = myFunction;
 		document.getElementById("removeLast").onclick = removeLastInList;
 		document.getElementById("addToLib").onclick  = addToLib;
 		document.getElementById("showLib").onclick  = showLibrary;
@@ -27,12 +29,24 @@ function addToLib() {
         message : document.getElementById("message_input").value
         }
 
-        signatureList.push(newSignature)
+        signatureList.push(newSignature);
+		
+		var updatedDropdown = document.getElementById("signatures");
+		var option = document.createElement("option");
+		option.value = newSignature.title;
+		updatedDropdown.appendChild(option);
+
 }
 
 function showLibrary() {
 	// Need method for window to pop up with signatureList elements
-	document.getElementById("Library").innerHTML = "cat"
+	var libraryList = ""
+	
+	for (let signature of signatureList){
+		libraryList = libraryList + signature.title + "&emsp;" + signature.message + "<BR/>" 
+	}
+
+	document.getElementById("Library").innerHTML = libraryList;
 }
 
 function removeLastInList() {
