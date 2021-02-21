@@ -54,20 +54,23 @@ function showLibrary() {
 function removeLastInList() {
 	// Removes the last element in the dropList
 	var x = signatureList
+	var y = document.getElementById("signatures");
 	x.pop();
+	y.removeChild(y.lastChild)
 
 	showLibrary();
 }
 
 function applySignature(){
-	var Value = document.querySelector('#signature').value;
+	var title = document.querySelector('#signature').value;
 	var emailMessage = null
 
-	signatureList.forEach(function(obj){
-		if (obj.title = Value) {
-			emailMessage = obj.message
+	var i;
+	for (i = 0; i < signatureList.length; i++){
+		if (signatureList[i].title == title) {
+			emailMessage = signatureList[i].message
 		}
-	})
+	}
 
 	Office.context.mailbox.item.body.setSelectedDataAsync(emailMessage)
 
