@@ -55,15 +55,14 @@
 
     <!-- Dropdown list of Signature titles -->
 
-    <form id="dropDownList">
+    <form id="dropDownList" action="taskpane.js">
         <label for="signature">Choose your signature from the list:</label>
         <input list="signatures" name="signature" id="signature">
         <datalist id="signatures">
           <option value="Default">
         </datalist>
-        <input id="applySignatureButton" type="submit" value="Apply signature">
+        <button type="button" id="applySignatureButton" >Apply Signature</button>
       </form>
-
       <br><br>
 
     <!-- Visible list of Signature titles -->

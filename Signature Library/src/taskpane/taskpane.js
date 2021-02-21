@@ -19,7 +19,7 @@ Office.onReady(info => {
 		document.getElementById("removeLast").onclick = removeLastInList;
 		document.getElementById("addToLib").onclick  = addToLib;
 		document.getElementById("showLib").onclick  = showLibrary;
-		document.getElementById("applySignatureButton").onclick  = pass;
+		document.getElementById("applySignatureButton").onclick  = applySignature;
 
   
 	}
@@ -57,6 +57,20 @@ function removeLastInList() {
 	x.pop();
 
 	showLibrary();
+}
+
+function applySignature(){
+	var Value = document.querySelector('#signature').value;
+	var emailMessage = null
+
+	signatureList.forEach(function(obj){
+		if (obj.title = Value) {
+			emailMessage = obj.message
+		}
+	})
+
+	Office.context.mailbox.item.body.setSelectedDataAsync(emailMessage)
+
 }
 
 
