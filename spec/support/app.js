@@ -1,14 +1,14 @@
 
-
 var signatureList = [];
 /**
  * 
  * @param {*} string 
  */
 function addSignature(string){
+  var string1 = parseInt(document.querySelector('#value1').value);
     var result = false;
-    if(string == null ||string == ""){
-        //window.alert ("The signature can't be blank.");
+    if(string == null || string == ""){
+        //alert ("The signature can't be blank.");
         result = false;
     }
     else if(string.length < 4 || string.length > 45 ){
@@ -18,41 +18,53 @@ function addSignature(string){
     else {
         for(var i = 0 ; i < signatureList.length; i++){
             if (signatureList[i] == string){
-               // window.alert("The signature already exist.");
+             //window.alert("The signature already exist.");
                 result = false;
             }
-            
+            else {
             signatureList.push(string);
-            window.alert("The signature has been added successfully.");
-            result= true;
+            //window.alert("The signature has been added successfully.");
+            result = true;
+            }
         }
     }    
         return result;
     }
   
-    
-
-
 
 
 function removeSignature(string){
     var remove  = null;
-    if (string !== null || string !== " ") {
+    var result = false ;
+    if (string !== null || string !== "") {
 
         for(var i = 0 ; i < signatureList.length ; i++){
 
             if(string == signatureList [i]){
                 remove = signatureList.pop[i];
-                window.alert(" The signature has been removed successfully.");
-                return true;
+              // alert(" The signature has been removed successfully.");
+                result = true;
             }
         }
     }
-    window.alert ("The signature can't be blank.");
-    return false;
+    else{
+          // window.alert ("The signature can't be blank.");
+        result = false;
+    }
+ 
+    return result;
 }
 
-
+ self.search(search){
+    if search
+      where (["model LIKE ?", "%#{search}%"])
+      where (["vin_number LIKE ?", "%#{search}%"])
+      where (["make LIKE ?", "%#{search}%"])
+      where (["many_part LIKE ?", "%#{search}%"])
+    else
+      all
+    end
+  end
 module.exports = {
     addSignature : addSignature,
     removeSignature : removeSignature,

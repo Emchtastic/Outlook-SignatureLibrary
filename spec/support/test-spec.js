@@ -3,7 +3,7 @@ describe("Add signature to list", () => {
     
     it("should signature add successfully", () =>{
         
-        expect(add.addSignature("Mohamed Elsheikh")).toEqual(true);
+        expect(add.addSignature("Mohamed Elsheikh")).toBeTrue(true)
         expect(add.addSignature("Frankovich, Kenneth")).toEqual(true);
         expect(add.addSignature(" Emch, Alex")).toEqual(true);
         expect(add.addSignature("Diaoune, Marie")).toEqual(true);
@@ -29,10 +29,19 @@ describe("Add signature to list", () => {
 
     });
 
-    it("should be equal your singnature", () =>{
+    it("should singnature be on the range 3 to 45 characters ", () =>{
         
         expect(add.addSignature("Mo")).toEqual(false);
-        expect(add.addSignature("M")).toEqual(false);
+        expect(add.addSignature("Mwrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrythjjjjjjjjjdhjjfffffffffffffffffffffffffffffffhfjjjjjjjjjjjjjjjjjhjggggggggggggggggggggggggggggggggggggg")).toEqual(false);
         
+    });
+});
+
+describe("Remove a signature from the list", () => {
+    
+    it("should signature add successfully", () =>{
+        
+        expect(add.removeSignature("Mohamed Elsheikh")).toEqual(true)
+
     });
 });
