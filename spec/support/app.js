@@ -1,27 +1,37 @@
+
+
 var signatureList = [];
 /**
  * 
  * @param {*} string 
  */
 function addSignature(string){
-    if(string !== null || string !== "  "){
+    var result = false;
+    if(string == null ||string == ""){
+        //window.alert ("The signature can't be blank.");
+        result = false;
+    }
+    else if(string.length < 4 || string.length > 45 ){
+        //window.alert("The signature minimum three characters, and the maximum is 45 characters.");
+        result = false;
+    }
+    else {
         for(var i = 0 ; i < signatureList.length; i++){
             if (signatureList[i] == string){
-                alert("The signature already exist.");
-                return false;
+               // window.alert("The signature already exist.");
+                result = false;
             }
-            else if(string.length < 4 || string.length > 45 ){
-                alert("The signature minimum three characters, and the maximum is 45 characters.")
-                return false;
-            }
+            
             signatureList.push(string);
-            alert("The signature has been added successfully.");
-            return true;
+            window.alert("The signature has been added successfully.");
+            result= true;
         }
+    }    
+        return result;
     }
-    alert ("The signature can't be null.");
-    return false;
-}
+  
+    
+
 
 
 
@@ -33,12 +43,12 @@ function removeSignature(string){
 
             if(string == signatureList [i]){
                 remove = signatureList.pop[i];
-                alert(" The signature has been removed successfully.");
+                window.alert(" The signature has been removed successfully.");
                 return true;
             }
         }
     }
-    alert ("The signature can't be null.");
+    window.alert ("The signature can't be blank.");
     return false;
 }
 
