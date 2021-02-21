@@ -55,16 +55,6 @@ function removeSignature(string){
     return result;
 }
 
- self.search(search){
-    if search
-      where (["model LIKE ?", "%#{search}%"])
-      where (["vin_number LIKE ?", "%#{search}%"])
-      where (["make LIKE ?", "%#{search}%"])
-      where (["many_part LIKE ?", "%#{search}%"])
-    else
-      all
-    end
-  end
 module.exports = {
     addSignature : addSignature,
     removeSignature : removeSignature,

@@ -1,0 +1,78 @@
+<!-- Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT License. -->
+<!-- This file shows how to design a first-run page that provides a welcome screen to the user about the features of the add-in. -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contoso Task Pane Add-in</title>
+
+    <!-- Office JavaScript API -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
+
+    <!-- For more information on Office UI Fabric, visit https://developer.microsoft.com/fabric. -->
+    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/9.6.1/css/fabric.min.css"/>
+
+    <!-- Template styles -->
+    <link href="taskpane.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="ms-font-m ms-welcome ms-Fabric">
+    <header class="ms-welcome__header ms-bgColor-neutralLighter">
+        <img width="180" height="180" src="../../assets/logo-filled.png" alt="Contoso" title="MSU" />
+        <h1 class="ms-font-su">The Signature Library</h1>
+    </header>
+    <section id="sideload-msg" class="ms-welcome__main">
+        <h2 class="ms-font-xl">Let's add some signatures!</h2>
+    </section>
+    <main id="app-body" class="ms-welcome__main" style="display: none;">
+        <h2 class="ms-font-xl"></h2>
+        <p><label id="item-subject"></label></p>
+    </main>
+    
+    Signature Title: <input type='text' id='title_input' />
+
+    <br><br>
+
+    Signature Message: <input type="text" id="message_input" value="" size="100" maxlength="200">
+
+    <br><br>
+
+    <input type='button' value='Add to new signature to library' id='addToLib' />
+
+    <br><br>
+
+    <input type='button' value='Open current signature library' id='showLib' />
+
+    <br><br>
+    
+    <button type="button" id="removeLast">Delete last signature in list</button>
+
+    <br><br><br><br>
+
+    <!-- Dropdown list of Signature titles -->
+    <div class="dropdown">
+        <button id="dropButton" class="dropbtn">Choose a signature to apply to email</button>
+        <div id="dropList" class="dropdown-content">
+        </div>
+      </div>
+    <br><br>
+
+    <!-- Visible list of Signature titles -->
+    <section id="LibraryHeader">
+        Current Library:</h2>
+    </section>
+    <section id="Library">
+        </h2>
+    </section>
+    
+    <br>
+
+
+</body>
+</html>
+
+<!-- Referenced code: https://stackoverflow.com/questions/19908215/adding-user-input-to-a-list-of-text-items-on-a-html-page/42950658 -->
