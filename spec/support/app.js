@@ -4,15 +4,22 @@ var signatureList = [];
  * @param {*} string 
  */
 function addSignature(string){
-    if(string !== null){
+    if(string !== null || string !== "  "){
         for(var i = 0 ; i < signatureList.length; i++){
             if (signatureList[i] == string){
-                return string;
+                alert("The signature already exist.");
+                return false;
+            }
+            else if(string.length < 4 || string.length > 45 ){
+                alert("The signature minimum three characters, and the maximum is 45 characters.")
+                return false;
             }
             signatureList.push(string);
+            return true;
         }
     }
-    return string;
+    alert ("The signature can't be null.");
+    return false;
 }
 
 
