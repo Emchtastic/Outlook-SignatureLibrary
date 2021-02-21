@@ -15,6 +15,7 @@ function addSignature(string){
                 return false;
             }
             signatureList.push(string);
+            alert("The signature has been added successfully.");
             return true;
         }
     }
@@ -26,20 +27,19 @@ function addSignature(string){
 
 function removeSignature(string){
     var remove  = null;
-    if (string !== null) {
+    if (string !== null || string !== " ") {
 
         for(var i = 0 ; i < signatureList.length ; i++){
 
             if(string == signatureList [i]){
-                remove = signatureList[i];
-                return string;
+                remove = signatureList.pop[i];
+                alert(" The signature has been removed successfully.");
+                return true;
             }
-            return false;
-
         }
-
     }
-    return string;
+    alert ("The signature can't be null.");
+    return false;
 }
 
 
