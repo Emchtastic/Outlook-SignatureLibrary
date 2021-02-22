@@ -16,7 +16,7 @@ var signatureList = [{
 
 Office.onReady(info => {
 	if (info.host === Office.HostType.Outlook) {
-		document.getElementById("removeLast").onclick = removeInList;
+		document.getElementById("removeThis").onclick = removeInList;
 		document.getElementById("addToLib").onclick  = addToLib;
 		document.getElementById("showLib").onclick  = showLibrary;
 		document.getElementById("applySignatureButton").onclick  = applySignature;
@@ -55,14 +55,16 @@ function removeInList() {
 	// Removes the chosen element in the dropList
 	var title = document.querySelector('#signature').value;
 	var y = document.getElementById("signatures");
+
+	var i;
 	
 	for (i = 0; i < signatureList.length; i++){
 		if (signatureList[i].title == title) {
-			signatureList.splice(i, 1)
-			y.remove(i)
+			//signatureList.splice(i, 1)
+			y.remove(i, 1)
 		}
-	}
 
+	}
 	showLibrary();
 }
 
@@ -84,5 +86,3 @@ function applySignature(){
 
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
-
-
