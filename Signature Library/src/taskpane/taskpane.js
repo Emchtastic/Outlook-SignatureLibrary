@@ -60,8 +60,8 @@ function removeInList() {
 	
 	for (i = 0; i < signatureList.length; i++){
 		if (signatureList[i].title == title) {
-			//signatureList.splice(i, 1)
-			y.remove(i, 1)
+			signatureList.splice(i, 1)
+			y.children[i].remove()
 		}
 
 	}
