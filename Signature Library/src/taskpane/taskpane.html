@@ -37,7 +37,9 @@
 
     <br><br>
 
-    Signature Message: <input type="text" id="message_input" value="" size="100" maxlength="200">
+    Signature Message: 
+    <br>
+    <textarea id="message_input" value="" cols="40" rows="5"></textarea>
 
     <br><br>
 
@@ -45,7 +47,7 @@
 
     <br><br>
 
-    <input type='button' value='Open current signature library' id='showLib' />
+    <input type='button' value='Show current signature library' id='showLib' />
 
     <br><br>
     
@@ -54,19 +56,25 @@
     <br><br><br><br>
 
     <!-- Dropdown list of Signature titles -->
-    <div class="dropdown">
-        <button id="dropButton" class="dropbtn">Choose a signature to apply to email</button>
-        <div id="dropList" class="dropdown-content">
-        </div>
-      </div>
-    <br><br>
+
+    <form id="dropDownList" action="taskpane.js">
+        <label for="signature">Choose your signature from the list:</label>
+        <input list="signatures" name="signature" id="signature">
+        <datalist id="signatures">
+          <option value="Default">
+        </datalist>
+        <button type="button" id="applySignatureButton" >Apply Signature</button>
+      </form>
+      <br><br>
 
     <!-- Visible list of Signature titles -->
     <section id="LibraryHeader">
-        Current Library:</h2>
+        Current Library:
+        <br>
+        <u>Title</u> &emsp; &emsp; <u>Message</u>
     </section>
+
     <section id="Library">
-        </h2>
     </section>
     
     <br>
