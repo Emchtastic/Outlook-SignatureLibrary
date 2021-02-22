@@ -8,62 +8,74 @@ import "../../assets/icon-16.png";
 import "../../assets/icon-32.png";
 import "../../assets/icon-80.png";
 
-var signatureList = []
+var signatureList = [{
+	title : "Default",
+	message : "I've got nothing"
+}]
 
 
 Office.onReady(info => {
 	if (info.host === Office.HostType.Outlook) {
-		document.getElementById("dropButton").onclick = myFunction;
 		document.getElementById("removeLast").onclick = removeLastInList;
 		document.getElementById("addToLib").onclick  = addToLib;
 		document.getElementById("showLib").onclick  = showLibrary;
+		document.getElementById("applySignatureButton").onclick  = applySignature;
 
   
 	}
 });
 
 function addToLib() {
+	// A function that creates a new object with title and message then adds it to the signature array
 	var newSignature = {title : document.getElementById("title_input").value, 
         message : document.getElementById("message_input").value
         }
 
-        signatureList.push(newSignature)
-	
-	var node = document.createElement("Li");
-	var text = document.getElementById("title_input").value; 
-	var textnode=document.createTextNode(text);
-	node.appendChild(textnode);
-	document.getElementById("dropList").appendChild(node);
+        signatureList.push(newSignature);
+		
+		var updatedDropdown = document.getElementById("signatures");
+		var option = document.createElement("option");
+		option.value = newSignature.title;
+		updatedDropdown.appendChild(option);
+
 }
 
 function showLibrary() {
 	// Need method for window to pop up with signatureList elements
-	document.getElementById("Library").innerHTML = JSON.stringify(signatureList)
-}
+	var libraryList = ""
+	
+	for (let signature of signatureList){
+		libraryList = libraryList + signature.title + "&emsp;" + signature.message + "<BR/>" 
+	}
 
-function myFunction() {
-	document.getElementById("dropList").classList.toggle("show");
+	document.getElementById("Library").innerHTML = libraryList;
 }
 
 function removeLastInList() {
 	// Removes the last element in the dropList
-	var x = document.getElementById("dropList");
-	x.removeChild(x.lastElementChild);
+	var x = signatureList
+	var y = document.getElementById("signatures");
+	x.pop();
+	y.removeChild(y.lastChild)
+
+	showLibrary();
 }
 
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-	if (!event.target.matches(".dropbtn")) {
-		var dropdowns = document.getElementsByClassName("dropdown-content");
-		var i;
-		for (i = 0; i < dropdowns.length; i++) {
-			var openDropdown = dropdowns[i];
-			if (openDropdown.classList.contains("show")) {
-				openDropdown.classList.remove("show");
-			}
+function applySignature(){
+	var title = document.querySelector('#signature').value;
+	var emailMessage = null
+
+	var i;
+	for (i = 0; i < signatureList.length; i++){
+		if (signatureList[i].title == title) {
+			emailMessage = signatureList[i].message
 		}
 	}
-};
+
+	Office.context.mailbox.item.body.setSelectedDataAsync(emailMessage)
+
+}
+
 
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
