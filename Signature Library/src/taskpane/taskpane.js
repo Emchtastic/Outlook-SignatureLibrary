@@ -76,6 +76,10 @@ function applySignature(){
 
 }
 
+function getRandom() {
+	return Math.floor(Math.random()* (signatureList.length)+1
+  }
+
 
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
