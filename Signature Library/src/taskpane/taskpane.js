@@ -9,8 +9,16 @@ import "../../assets/icon-32.png";
 import "../../assets/icon-80.png";
 
 var signatureList = [{
-	title : "Default",
-	message : "I've got nothing"
+	title : "Yoda",
+	message : "“The greatest teacher, failure is.”\n ---Yoda"
+},
+{
+	title : "Vader",
+	message : "“All that I sense,\n is fear and dead men.”\n ---Darth Vader"
+},
+{
+	title : "Han solo",
+	message : "“It’s not wise to upset a Wookiee.”\n ---Han Solo"
 }]
 
 
