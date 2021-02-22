@@ -171,4 +171,4 @@ window.onclick = function(event) {
 </script>
 
 </body>
-<body>
+<body>school
