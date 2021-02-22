@@ -16,7 +16,7 @@ var signatureList = [{
 
 Office.onReady(info => {
 	if (info.host === Office.HostType.Outlook) {
-		document.getElementById("removeLast").onclick = removeLastInList;
+		document.getElementById("removeLast").onclick = removeInList;
 		document.getElementById("addToLib").onclick  = addToLib;
 		document.getElementById("showLib").onclick  = showLibrary;
 		document.getElementById("applySignatureButton").onclick  = applySignature;
@@ -51,12 +51,17 @@ function showLibrary() {
 	document.getElementById("Library").innerHTML = libraryList;
 }
 
-function removeLastInList() {
-	// Removes the last element in the dropList
-	var x = signatureList
+function removeInList() {
+	// Removes the chosen element in the dropList
+	var title = document.querySelector('#signature').value;
 	var y = document.getElementById("signatures");
-	x.pop();
-	y.removeChild(y.lastChild)
+	
+	for (i = 0; i < signatureList.length; i++){
+		if (signatureList[i].title == title) {
+			signatureList.splice(i, 1)
+			y.remove(i)
+		}
+	}
 
 	showLibrary();
 }
