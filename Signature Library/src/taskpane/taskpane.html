@@ -50,22 +50,20 @@
     <input type='button' value='Show current signature library' id='showLib' />
 
     <br><br>
-    
-    <button type="button" id="removeLast">Delete last signature in list</button>
-
-    <br><br><br><br>
 
     <!-- Dropdown list of Signature titles -->
-
+    Here are your signatures:
     <form id="dropDownList" action="taskpane.js">
-        <label for="signature">Choose your signature from the list:</label>
         <input list="signatures" name="signature" id="signature">
         <datalist id="signatures">
-          <option value="Default">
+          <option value="Yoda">
+          <option value="Vader">
+          <option value="Han Solo"></option>
         </datalist>
-        <button type="button" id="applySignatureButton" >Apply Signature</button>
+        <button type="button" id="applySignatureButton" >Apply to email</button> 
+        <button type="button" id="removeThis">Delete from Library</button>
       </form>
-      <br><br>
+      <br><br><br><br>
 
     <!-- Visible list of Signature titles -->
     <section id="LibraryHeader">

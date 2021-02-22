@@ -9,14 +9,22 @@ import "../../assets/icon-32.png";
 import "../../assets/icon-80.png";
 
 var signatureList = [{
-	title : "Default",
-	message : "I've got nothing"
+	title : "Yoda",
+	message : "“The greatest teacher, failure is.”\n ---Yoda"
+},
+{
+	title : "Vader",
+	message : "“All that I sense,\n is fear and dead men.”\n ---Darth Vader"
+},
+{
+	title : "Han solo",
+	message : "“It’s not wise to upset a Wookiee.”\n ---Han Solo"
 }]
 
 
 Office.onReady(info => {
 	if (info.host === Office.HostType.Outlook) {
-		document.getElementById("removeLast").onclick = removeLastInList;
+		document.getElementById("removeThis").onclick = removeInList;
 		document.getElementById("addToLib").onclick  = addToLib;
 		document.getElementById("showLib").onclick  = showLibrary;
 		document.getElementById("applySignatureButton").onclick  = applySignature;
@@ -51,13 +59,20 @@ function showLibrary() {
 	document.getElementById("Library").innerHTML = libraryList;
 }
 
-function removeLastInList() {
-	// Removes the last element in the dropList
-	var x = signatureList
+function removeInList() {
+	// Removes the chosen element in the dropList
+	var title = document.querySelector('#signature').value;
 	var y = document.getElementById("signatures");
-	x.pop();
-	y.removeChild(y.lastChild)
 
+	var i;
+	
+	for (i = 0; i < signatureList.length; i++){
+		if (signatureList[i].title == title) {
+			signatureList.splice(i, 1)
+			y.children[i].remove()
+		}
+
+	}
 	showLibrary();
 }
 
@@ -88,5 +103,3 @@ function applyRandomSignature(){
 
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
-
-
