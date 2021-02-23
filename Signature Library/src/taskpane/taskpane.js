@@ -99,7 +99,7 @@ function applyRandomSignature(){
 	var emailMessage = signatureList.slice(getRandom()-1);
 	Office.context.mailbox.item.body.setSelectedDataAsync(emailMessage)
 }
-
+// This is a test to show
 
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
