@@ -34,11 +34,11 @@ function addToLib() {
 			alert ("The signature can't be blank.");
 		}
 		else if(newSignature.message.length < 3 || newSignature.message.length > 46 ){
-		       alert("");
-				}
-				else {
+		       alert("The signature minimum three characters, and the maximum is 45 characters.");
+		}
+		else {
 
-				signatureList.push(newSignature);
+			signatureList.push(newSignature);
 				
 		}  
 	
