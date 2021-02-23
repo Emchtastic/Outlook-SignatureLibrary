@@ -17,7 +17,7 @@ var signatureList = [{
 	message : "“All that I sense,\n is fear and dead men.”\n ---Darth Vader"
 },
 {
-	title : "Han solo",
+	title : "Han Solo",
 	message : "“It’s not wise to upset a Wookiee.”\n ---Han Solo"
 }]
 
@@ -28,6 +28,7 @@ Office.onReady(info => {
 		document.getElementById("addToLib").onclick  = addToLib;
 		document.getElementById("showLib").onclick  = showLibrary;
 		document.getElementById("applySignatureButton").onclick  = applySignature;
+		document.getElementById("imFeelingLucky").onclick  = applyRandomSignature;
 
   
 	}
@@ -92,14 +93,15 @@ function applySignature(){
 }
 
 function getRandom() {
-	return Math.floor(Math.random()* (signatureList.length)+1
+	return Math.floor(Math.random()* (signatureList.length)+1)
   }
 
 function applyRandomSignature(){
-	var emailMessage = signatureList.slice(getRandom()-1);
-	Office.context.mailbox.item.body.setSelectedDataAsync(emailMessage)
+	var chosenSignature = signatureList[getRandom()-1];
+	var message = chosenSignature.message
+
+	Office.context.mailbox.item.body.setSelectedDataAsync(message)
 }
-// This is a test to show
 
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
