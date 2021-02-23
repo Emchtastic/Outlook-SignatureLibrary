@@ -1,0 +1,138 @@
+<!-- Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT License. -->
+<!-- This file shows how to design a first-run page that provides a welcome screen to the user about the features of the add-in. -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contoso Task Pane Add-in</title>
+
+    <!-- Office JavaScript API -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
+
+    <!-- For more information on Office UI Fabric, visit https://developer.microsoft.com/fabric. -->
+    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/9.6.1/css/fabric.min.css"/>
+
+    <!-- Template styles -->
+    <link href="taskpane.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="ms-font-m ms-welcome ms-Fabric">
+    <header class="ms-welcome__header ms-bgColor-neutralLighter">
+        <img width="180" height="180" src="../../assets/logo-filled.png" alt="Contoso" title="MSU" />
+        <h1 class="ms-font-su">The Signature Library</h1>
+    </header>
+    <section id="sideload-msg" class="ms-welcome__main">
+        <h2 class="ms-font-xl">Please sideload your add-in to see app body.</h2>
+    </section>
+    <main id="app-body" class="ms-welcome__main" style="display: none;">
+        <h2 class="ms-font-xl"> Let's add some signatures! </h2>
+        Signature message: <p><label id="item-subject"></label></p>
+        
+        
+    </main>
+    
+    Signature Title: <input type='text' id='title_input' />
+
+    <br><br>
+
+    Signature Message: <input type="text" id="message_input" value="" size="70" maxlength="60">
+
+    <br><br>
+
+    <input type='button' value='Add to droplist' id='addToDrop' />
+
+    <br><br>
+
+    <input type='button' value='Add to list' id='addToList' />
+
+    <br><br>
+
+    <input type='button' value='try' id='try' />
+
+    <br><br>
+    
+    <button type="button" onclick="removeFunction()">Delete last signature in list</button>
+
+    <br><br><br><br>
+
+    <!-- Dropdown list of Signature titles -->
+    <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">Signature Dropdown List</button>
+        <div id="dropList" class="dropdown-content">
+        </div>
+      </div>
+    <br><br>
+
+    <!-- Visible list of Signature titles -->
+    <form>
+        Current Signatures:
+        <br>
+        <ul id="sigList" size="4">
+        </ul>
+    </form>
+    <br>
+
+
+    <script>
+
+        document.getElementById("addToDrop").onclick  = function() {
+
+            var node = document.createElement("Li");
+            var text = document.getElementById("title_input").value; 
+            var textnode=document.createTextNode(text);
+            node.appendChild(textnode);
+            document.getElementById("dropList").appendChild(node);
+        }
+
+        document.getElementById("addToList").onclick  = function() {
+
+            var ul = document.getElementById("sigList");
+            var li = document.createElement("li");
+            var text = document.getElementById("title_input").value;
+            li.appendChild(document.createTextNode(text));
+            ul.appendChild(li);
+            
+        }
+
+        document.getElementById("try").onclick  = function() {
+
+            var newSignature = {title : document.getElementById("title_input").value, 
+            message : document.getElementById("message_input").value
+            }
+
+            document.getElementById("item-subject").innerHTML = newSignature.title + " " + newSignature.message;
+
+        }
+
+        function removeFunction() {
+            var x = document.getElementById("sigList");
+            x.removeChild(x.lastElementChild);
+        }
+
+        function myFunction() {
+            document.getElementById("dropList").classList.toggle("show");
+        }
+
+        // Close the dropdown menu if the user clicks outside of it
+        window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+<!-- Referenced code: https://stackoverflow.com/questions/19908215/adding-user-input-to-a-list-of-text-items-on-a-html-page/42950658 -->
