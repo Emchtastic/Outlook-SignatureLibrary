@@ -4,9 +4,9 @@
  */
 
 // images references in the manifest
-import "../../assets/icon-16.png";
-import "../../assets/icon-32.png";
-import "../../assets/icon-80.png";
+//import "../../assets/icon-16.png";
+//import "../../assets/icon-32.png";
+//import "../../assets/icon-80.png";
 
 var signatureList = [{
 	title : "Yoda",
@@ -105,3 +105,11 @@ function applyRandomSignature(){
 
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
+module.exports = {
+	getRandom : getRandom ,
+	applyRandomSignature : applyRandomSignature,
+	applySignature : applySignature,
+	showLibrary : showLibrary ,
+	removeInList : removeInList,
+	addToLib : addToLib,
+}
