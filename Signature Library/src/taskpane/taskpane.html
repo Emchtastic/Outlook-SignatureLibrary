@@ -32,21 +32,27 @@
         <h2 class="ms-font-xl"></h2>
         <p><label id="item-subject"></label></p>
     </main>
+
+	<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Add new signature</button>
+	<div id="id01" class="modal">
+  	  <form class="modal-content animate" action="/action_page.php" method="post">
+    	    <div class="container">
+      		<label for="add_Signature"><b>Add your signature</b></label>
+      		<input type="text" placeholder="Enter signature title here" id="title_input" required>
+            <textarea placeholder="Enter signature message here" id="message_input" cols="40" rows="5"></textarea>
+            <br>
+            <input type='button' value='Add to new signature to library' id='addToLib' />
+    	    </div>
+
+    	    <div class="container" style="background-color:#f1f1f1">
+      	  	    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Close</button>
+    	    </div>
+  	    </form>
+    </div>
     
-    Signature Title: <input type='text' id='title_input' />
-
     <br><br>
 
-    Signature Message: 
-    <br>
-    <textarea id="message_input" value="" cols="40" rows="5"></textarea>
-
-    <br><br>
-
-    <input type='button' value='Add to new signature to library' id='addToLib' />
-
-    <br><br>
-
+    <!-- This is the button ID you need to grab -->
     <input type='button' value='Show current signature library' id='showLib' />
 
     <br><br>
@@ -73,7 +79,8 @@
         <br>
         <u>Title</u> &emsp; &emsp; <u>Message</u>
     </section>
-
+    
+    <!-- Section for you to copy into new "sigature library" window -->
     <section id="Library">
     </section>
     

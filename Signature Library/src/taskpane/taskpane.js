@@ -1,12 +1,3 @@
-/*
- * Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.
- * See LICENSE in the project root for license information.
- */
-
-// images references in the manifest
-import "../../assets/icon-16.png";
-import "../../assets/icon-32.png";
-import "../../assets/icon-80.png";
 
 var signatureList = [{
 	title : "Yoda",
@@ -18,7 +9,7 @@ var signatureList = [{
 },
 {
 	title : "Han Solo",
-	message : "“It’s not wise to upset a Wookiee.”\n ---Han Solo"
+	message : "“It’s not wise to upset a Wookie.”\n ---Han Solo"
 }]
 
 
@@ -47,6 +38,8 @@ function addToLib() {
 		option.value = newSignature.title;
 		updatedDropdown.appendChild(option);
 
+		document.getElementById("title_input").value = ""
+		document.getElementById("message_input").value = ""
 }
 
 function showLibrary() {
