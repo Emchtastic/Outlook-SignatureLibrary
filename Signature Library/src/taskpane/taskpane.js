@@ -51,6 +51,33 @@ function removeLastInList() {
 	x.removeChild(x.lastElementChild);
 }
 
+function createCookie(title, signature, date) {
+    let expiration = new Date(date).toUTCString();
+    console.log(expiration);
+    let cookie = escape(key) + "=" + escape(signature) + ";expires=" + expiration + ";";
+    document.cookie = cookie;
+}
+
+function readCookie(name) {
+    let key = name + "=";
+    let cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+        let cookie = cookies[i];
+        while (cookie.charAt(0) === ' ') {
+                cookie = cookie.substring(1, cookie.length);
+        }
+        if (cookie.indexOf(key) === 0) {
+            return cookie.substring(key.length, cookie.length);
+        }
+    }
+    return null;
+}
+
+function deleteCookie(name) {
+    createCookie(name, "", -1);
+}
+
+
 // Close the dropdown menu if the user clicks outside of it
 window.onclick = function(event) {
 	if (!event.target.matches(".dropbtn")) {
