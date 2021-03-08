@@ -17,7 +17,7 @@ Office.onReady(info => {
 	if (info.host === Office.HostType.Outlook) {
 		document.getElementById("removeThis").onclick = removeInList;
 		document.getElementById("addToLib").onclick  = addToLib;
-		document.getElementById("showLib").onclick  = showLibrary;
+		//document.getElementById("showLib").onclick  = showLibrary;
 		document.getElementById("applySignatureButton").onclick  = applySignature;
 		document.getElementById("imFeelingLucky").onclick  = applyRandomSignature;
 

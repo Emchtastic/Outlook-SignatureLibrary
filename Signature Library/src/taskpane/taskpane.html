@@ -49,8 +49,19 @@
     
     <br><br>
 
-    <!-- This is the button ID you need to grab -->
-    <input type='button' value='Show current signature library' id='showLib' />
+    <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;" id = "showLib">Show current signature library</button>
+	<div id="id02" class="modal">
+  	  <form class="modal-content animate" action="/action_page.php" method="post">
+    	    <div class="container">
+      		
+    	    </div>
+
+    	    <div class="container" style="background-color:#f1f1f1">
+      	  	    <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Close</button>
+    	    </div>
+  	    </form>
+    </div>
+    <br><br>
 
     <br><br>
 
