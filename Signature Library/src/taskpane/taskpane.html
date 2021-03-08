@@ -38,11 +38,12 @@
       		<input type="text" placeholder="Enter signature title here" id="title_input" required>
             <textarea placeholder="Enter signature message here" id="message_input" cols="40" rows="5"></textarea>
             <br>
-            <input type='button' value='Add to new signature to library' id='addToLib' />
+            
     	    </div>
 
     	    <div class="container" style="background-color:#f1f1f1">
       	  	    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Close</button>
+                <button type='button' class = "mdia" id='addToLib'>Add new signature to library</button>
     	    </div>
   	    </form>
     </div>
@@ -52,25 +53,28 @@
     <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;" id = "showLib">Show current signature library</button>
 	<div id="id02" class="modal">
   	  <form class="modal-content animate" action="/action_page.php" method="post">
-    	    <div class="container">
+    	    <!--div class="container"-->
                 <div class="tab">
-                    
                     <button class="tablinks" onclick="openSig(event, 'Placeholder1')" id="defaultOpen">Hold 1</button>
-                    <!---
                     <button class="tablinks" onclick="openSig(event, 'Placeholer2')">Hold 2</button>
-                    --->
+                    <button class="tablinks" onclick="openSig(event, 'Placeholer3')">Hold 3</button>
                   </div>
                   
                   <div id="Placeholder1" class="tabcontent">
                     <h3>This is where yoda goes</h3>
                     <p>Yoda quote</p>
                   </div>
-                  <!--
+
                   <div id="Placeholder2" class="tabcontent">
-                    <h3>This is where yoda goes</h3>
+                    <h3>This is where more signatures goes</h3>
                     <p>Quote</p> 
-                  </div>-->
-    	    </div>
+                  </div>
+
+                  <div id="Placeholder3" class="tabcontent">
+                    <h3>This is where more signatures goes</h3>
+                    <p>Quote</p> 
+                  </div>
+    	    <!--/div--->
 
     	    <div class="container" style="background-color:#f1f1f1">
       	  	    <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Close</button>
@@ -114,4 +118,5 @@
 </body>
 </html>
 
-<!-- Referenced code: https://stackoverflow.com/questions/19908215/adding-user-input-to-a-list-of-text-items-on-a-html-page/42950658 -->
+<!-- Referenced code: https://stackoverflow.com/questions/19908215/adding-user-input-to-a-list-of-text-items-on-a-html-page/42950658 
+                     https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_vertical_tabs-->
