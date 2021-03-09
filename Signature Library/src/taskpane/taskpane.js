@@ -123,24 +123,13 @@ function applyRandomSignature(){
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
 module.exports = {
-    getRandom : getRandom ,
-    applyRandomSignature : applyRandomSignature,
-    applySignature : applySignature,
-    showLibrary : showLibrary ,
-    removeInList : removeInList,
-    addToLib : addToLib,
+	getRandom : getRandom ,
+	applyRandomSignature : applyRandomSignature,
+	applySignature : applySignature,
+	removeInList : removeInList,
+	addToLib : addToLib,
+	signatureList : signatureList,
 }
 
 // reference code: https://www.kirupa.com/html5/storing_and_retrieving_an_array_from_local_storage.htm, https://stackoverflow.com/questions/17745292/how-to-retrieve-all-localstorage-items-without-knowing-the-keys-in-advance
 
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-module.exports = {
-	getRandom : getRandom ,
-	applyRandomSignature : applyRandomSignature,
-	applySignature : applySignature,
-	showLibrary : showLibrary ,
-	removeInList : removeInList,
-	addToLib : addToLib,
-	signatureList  :  signatureList ,
-}
