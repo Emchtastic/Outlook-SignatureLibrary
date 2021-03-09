@@ -1,4 +1,0 @@
-
-var add = require('.');
-add.
- 

@@ -8,6 +8,9 @@
 //import "../../assets/icon-32.png";
 //import "../../assets/icon-80.png";
 
+global.Office = () => ({});
+global.Office.onReady = () => ({});
+
 var signatureList = [{
 	title : "Yoda",
 	message : "“The greatest teacher, failure is.”\n ---Yoda"
@@ -23,17 +26,20 @@ var signatureList = [{
 
 
 Office.onReady(info => {
-	if (info.host === Office.HostType.Outlook) {
-		document.getElementById("removeThis").onclick = removeInList;
-		document.getElementById("addToLib").onclick  = addToLib;
-		document.getElementById("showLib").onclick  = showLibrary;
-		document.getElementById("applySignatureButton").onclick  = applySignature;
-		document.getElementById("imFeelingLucky").onclick  = applyRandomSignature;
+    if (info.host === Office.HostType.Outlook) {
+        document.getElementById("removeThis").onclick = removeInList;
+        document.getElementById("addToLib").onclick  = addToLib;
+        document.getElementById("showLib").onclick  = showLibrary;
+        document.getElementById("applySignatureButton").onclick  = applySignature;
+        document.getElementById("imFeelingLucky").onclick  = applyRandomSignature;
 
   
-	}
+    }
 });
 
+/**
+ * 
+ */
 function addToLib() {
 	// A function that creates a new object with title and message then adds it to the signature array
 	var newSignature = {title : document.getElementById("title_input").value, 
@@ -112,4 +118,5 @@ module.exports = {
 	showLibrary : showLibrary ,
 	removeInList : removeInList,
 	addToLib : addToLib,
+	signatureList  :  signatureList ,
 }
