@@ -34,6 +34,8 @@ Office.onReady(info => {
 	}
 });
 
+
+
 function addToLib() {
 	// A function that creates a new object with title and message then adds it to the signature array
 	var newSignature = {title : document.getElementById("title_input").value, 
@@ -46,7 +48,27 @@ function addToLib() {
 		var option = document.createElement("option");
 		option.value = newSignature.title;
 		updatedDropdown.appendChild(option);
+		localStorage.setItem(newSignature.title, JSON.stringify(newSignature.message)) // NEW LF
 
+}
+
+// NEW LF
+function allStorage() {
+    var values = [],
+        keys = Object.keys(localStorage),
+        i = keys.length;
+    while ( i-- ) {
+        values.push( localStorage.getItem(keys[i]) );
+    }
+    return values;
+}
+
+function showLibraryRemote() {
+	var libraryList = JSON.parse(JSON.stringify(localStorage));
+} // Need help finishing this.
+
+function removeFromLocal(key) {
+	localStorage.removeItem(key)
 }
 
 function showLibrary() {
@@ -64,7 +86,7 @@ function removeInList() {
 	// Removes the chosen element in the dropList
 	var title = document.querySelector('#signature').value;
 	var y = document.getElementById("signatures");
-
+	removeFromLocal(title) // NEW LF
 	var i;
 	
 	for (i = 0; i < signatureList.length; i++){
@@ -113,3 +135,5 @@ module.exports = {
 	removeInList : removeInList,
 	addToLib : addToLib,
 }
+
+// reference code: https://www.kirupa.com/html5/storing_and_retrieving_an_array_from_local_storage.htm, https://stackoverflow.com/questions/17745292/how-to-retrieve-all-localstorage-items-without-knowing-the-keys-in-advance
