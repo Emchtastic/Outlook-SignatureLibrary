@@ -1,6 +1,3 @@
-<!-- Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT License. -->
-<!-- This file shows how to design a first-run page that provides a welcome screen to the user about the features of the add-in. -->
-
 <!DOCTYPE html>
 <html>
 
@@ -32,22 +29,51 @@
         <h2 class="ms-font-xl"></h2>
         <p><label id="item-subject"></label></p>
     </main>
+
+	<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Add new signature</button>
+	<div id="id01" class="modal">
+  	  <form class="modal-content animate" action="/action_page.php" method="post">
+    	    <div class="container">
+      		<label for="add_Signature"><b>Store new signature</b></label>
+            <br><br>
+      		<input type="text" placeholder="Enter title" id="title_input" required>
+            <textarea placeholder="Enter signature message here" id="message_input" cols="30" rows="5"></textarea>
+            <br>
+            
+    	    </div>
+
+    	    <div class="container" style="background-color:#f1f1f1">
+                <button type='button' class = "addbtn" id='addToLib'>Add new signature to library</button>
+      	  	    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Close</button>
+        
+    	    </div>
+  	    </form>
+    </div>
     
-    Signature Title: <input type='text' id='title_input' />
-
     <br><br>
 
-    Signature Message: 
-    <br>
-    <textarea id="message_input" value="" cols="40" rows="5"></textarea>
+    <button onclick="document.getElementById('OutsideModal').style.display='block'" style="width:auto;" id = "showLib">Show current signature library</button>
+	<div id="OutsideModal" class="modal">
+  	  <form class="modal-content animate" method="post">
+    	    <!--div class="container"-->
+            <div class="tab">
+                <button class="tablinks" onclick="openSig(event, 'Placeholder1')" id="defaultOpen">Hold 1</button>
+                <button class="tablinks" onclick="openSig(event, 'Placeholder1')">Hold 2</button>
+                <button class="tablinks" onclick="openSig(event, 'Placeholder1')">Hold 3</button>
+            </div>
+              
+            <div id="Placeholder1" class="tabcontent">
+                <textarea placeholder="Signature title" id="Sig_title", cols="24"></textarea>
+                <textarea placeholder="Signature message" id="Sig_message" cols="24" rows="5"></textarea>
+            </div>
+    	    <!--/div--->
 
+    	    <div class="container" style="background-color:#f1f1f1">
+      	  	    <button type="button" onclick="document.getElementById('OutsideModal').style.display='none'" class="cancelbtn">Close</button>
+    	    </div>
+  	    </form>
+    </div>
     <br><br>
-
-    <input type='button' value='Add to new signature to library' id='addToLib' />
-
-    <br><br>
-
-    <input type='button' value='Show current signature library' id='showLib' />
 
     <br><br>
 
@@ -60,22 +86,12 @@
           <option value="Vader">
           <option value="Han Solo"></option>
         </datalist>
-        <button type="button" id="applySignatureButton" >Apply to email</button> 
-        <button type="button" id="imFeelingLucky">I'm feeling lucky</button>
-        <button type="button" id="removeThis">Delete from library</button>
+        <input type="button" id="applySignatureButton" value="Apply to email"/>
+        <input type="button" id="imFeelingLucky" value="I'm feeling lucky"/>
+        <input type="button" id="removeThis" value="Delete from library"/>
         
       </form>
       <br><br><br>
-
-    <!-- Visible list of Signature titles -->
-    <section id="LibraryHeader">
-        Current Library:
-        <br>
-        <u>Title</u> &emsp; &emsp; <u>Message</u>
-    </section>
-
-    <section id="Library">
-    </section>
     
     <br>
 
@@ -83,4 +99,5 @@
 </body>
 </html>
 
-<!-- Referenced code: https://stackoverflow.com/questions/19908215/adding-user-input-to-a-list-of-text-items-on-a-html-page/42950658 -->
+<!-- Referenced code: https://stackoverflow.com/questions/19908215/adding-user-input-to-a-list-of-text-items-on-a-html-page/42950658 
+                     https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_vertical_tabs-->
