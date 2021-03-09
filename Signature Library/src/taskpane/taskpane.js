@@ -15,7 +15,6 @@ var signatureList = [{
 
 Office.onReady(info => {
 	if (info.host === Office.HostType.Outlook) {
-		document.getElementById("libList").onclick = selectTitle;
 		document.getElementById("removeThis").onclick = removeInList;
 		document.getElementById("addToLib").onclick  = addToLib;
 		//document.getElementById("showLib").onclick  = showLibrary;
@@ -95,11 +94,6 @@ function applyRandomSignature(){
 	var message = chosenSignature.message
 
 	Office.context.mailbox.item.body.setSelectedDataAsync(message)
-}
-
-function selectTitle() {
-	var title = document.querySelector('#libList').value;
-	var sigTitle = document.getElementById
 }
 
 /* When the user clicks on the button,
