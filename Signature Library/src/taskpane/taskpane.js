@@ -49,6 +49,9 @@ function addToLib() {
         updatedDropdown.appendChild(option);
         localStorage.setItem(newSignature.title, newSignature.message) // NEW LF
 
+        document.getElementById("title_input").value = ""
+        document.getElementById("message_input").value = ""
+
 }
 
 
