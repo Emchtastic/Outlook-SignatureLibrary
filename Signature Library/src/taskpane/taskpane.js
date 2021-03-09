@@ -57,7 +57,7 @@ function allStorage() {
         keys = Object.keys(localStorage),
         i = keys.length;
     while ( i-- ) {
-        if (keys[i].includes("loglevel:webpack-dev-server" || "Office API client")) {
+        if (keys[i].includes("77") || keys[i].includes("loglevel:webpack-dev-server") || keys[i].includes("Office API client")) {
             i--
         }
         else {
@@ -72,7 +72,6 @@ function allStorage() {
             var option = document.createElement("option");
             option.value = signature.title;
             updatedDropdown.appendChild(option);
-
         }
 	}
 }
