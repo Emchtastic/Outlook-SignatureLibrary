@@ -100,20 +100,29 @@ function applyRandomSignature(){
 toggle between hiding and showing the dropdown content */
 
 
+
+
+
+
+
+
+
+
+/* My first idea was to create a tablist but there is a bug for when it displays on the window 
 function openSig(evt, signatureName) {
 
 	var i, tabcontent, tablinks;
 	tabcontent = document.getElementsByClassName("tabcontent");
 	for (i = 0; i < tabcontent.length; i++) {
-	  tabcontent[i].style.display = "";
+	  tabcontent[i].style.display = "none";
 	}
 	tablinks = document.getElementsByClassName("tablinks");
 	for (i = 0; i < tablinks.length; i++) {
 	  tablinks[i].className = tablinks[i].className.replace(" active", "");
 	}
-	document.getElementById(signatureName).style.display = "block";
+	document.getElementById(signatureName).style.display = "none";
 	evt.currentTarget.className += " active";
   
   // Get the element with id="defaultOpen" and click on it
   document.getElementById("defaultOpen").click();
-}
+}*/

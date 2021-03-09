@@ -51,34 +51,24 @@
     
     <br><br>
 
-    <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;" id = "showLib">Show current signature library</button>
-	<div id="id02" class="modal">
+    <button onclick="document.getElementById('OutsideModal').style.display='block'" style="width:auto;" id = "showLib">Show current signature library</button>
+	<div id="OutsideModal" class="modal">
   	  <form class="modal-content animate" action="/action_page.php" method="post">
     	    <!--div class="container"-->
-                <div class="tab">
-                    <button class="tablinks" onclick="openSig(event, 'Placeholder1')" id="defaultOpen">Hold 1</button>
-                    <button class="tablinks" onclick="openSig(event, 'Placeholer2')">Hold 2</button>
-                    <button class="tablinks" onclick="openSig(event, 'Placeholer3')">Hold 3</button>
-                  </div>
-                  
-                  <div id="Placeholder1" class="tabcontent">
-                    <h3>This is where yoda goes</h3>
-                    <p>Yoda quote</p>
-                  </div>
-
-                  <div id="Placeholder2" class="tabcontent">
-                    <h3>This is where more signatures goes</h3>
-                    <p>Quote</p> 
-                  </div>
-
-                  <div id="Placeholder3" class="tabcontent">
-                    <h3>This is where more signatures goes</h3>
-                    <p>Quote</p> 
-                  </div>
+            <div class="tab">
+                <button class="tablinks" onclick="openSig(event, 'Placeholder1')" id="defaultOpen">Hold 1</button>
+                <button class="tablinks" onclick="openSig(event, 'Placeholer1')">Hold 2</button>
+                <button class="tablinks" onclick="openSig(event, 'Placeholer1')">Hold 3</button>
+            </div>
+              
+            <div id="Placeholder1" class="tabcontent">
+                <input type="text" placeholder="Signature title here" id="Sig_Title">
+                <textarea placeholder="Signature message here" id="message_input" cols="40" rows="5"></textarea>
+            </div>
     	    <!--/div--->
 
     	    <div class="container" style="background-color:#f1f1f1">
-      	  	    <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Close</button>
+      	  	    <button type="button" onclick="document.getElementById('OutsideModal').style.display='none'" class="cancelbtn">Close</button>
     	    </div>
   	    </form>
     </div>
