@@ -24,6 +24,7 @@ var signatureList = [{
 
 Office.onReady(info => {
 	if (info.host === Office.HostType.Outlook) {
+		
 		document.getElementById("removeThis").onclick = removeInList;
 		document.getElementById("addToLib").onclick  = addToLib;
 		document.getElementById("showLib").onclick  = showLibrary;
@@ -48,24 +49,24 @@ function addToLib() {
 		var option = document.createElement("option");
 		option.value = newSignature.title;
 		updatedDropdown.appendChild(option);
-		localStorage.setItem(newSignature.title, JSON.stringify(newSignature.message)) // NEW LF
+		localStorage.setItem(newSignature.title, JSON.stringify(newSignature.message)) 
 
 }
 
-// NEW LF
 function allStorage() {
     var values = [],
         keys = Object.keys(localStorage),
         i = keys.length;
-    while ( i-- ) {
-        values.push( localStorage.getItem(keys[i]) );
+    while ( i-- && i > 1) {
+        var signature = {
+			title : keys[i],
+			message : localStorage.getItem(keys[i])
+		}
+		values.push(signature)
     }
-    return values;
+    document.getElementById("Library").innerHTML = JSON.stringify(values);
 }
 
-function showLibraryRemote() {
-	var libraryList = JSON.parse(JSON.stringify(localStorage));
-} // Need help finishing this.
 
 function removeFromLocal(key) {
 	localStorage.removeItem(key)
@@ -86,7 +87,7 @@ function removeInList() {
 	// Removes the chosen element in the dropList
 	var title = document.querySelector('#signature').value;
 	var y = document.getElementById("signatures");
-	removeFromLocal(title) // NEW LF
+	removeFromLocal(title) 
 	var i;
 	
 	for (i = 0; i < signatureList.length; i++){
