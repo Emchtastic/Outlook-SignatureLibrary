@@ -47,13 +47,12 @@ function addToLib() {
         var option = document.createElement("option");
         option.value = newSignature.title;
         updatedDropdown.appendChild(option);
-        localStorage.setItem(newSignature.title, JSON.stringify(newSignature.message)) // NEW LF
+        localStorage.setItem(newSignature.title, newSignature.message) // NEW LF
 
 }
 
 
 function allStorage() {
-    var values = [],
         keys = Object.keys(localStorage),
         i = keys.length;
     while ( i-- ) {
@@ -65,7 +64,6 @@ function allStorage() {
                 title : keys[i],
                 message : localStorage.getItem(keys[i]),
             }
-            values.push(signature);
             signatureList.push(signature);
     
             var updatedDropdown = document.getElementById("signatures");
