@@ -28,9 +28,10 @@
     "watch": "webpack --mode development --watch"
   },
   "devDependencies": {
-    "@babel/core": "^7.11.6",
+    "@babel/cli": "^7.13.10",
+    "@babel/core": "^7.13.10",
     "@babel/polyfill": "^7.11.5",
-    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-env": "^7.13.10",
     "@types/find-process": "1.2.0",
     "@types/office-js": "^1.0.108",
     "@types/office-runtime": "^1.0.14",
@@ -57,5 +58,13 @@
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
   },
-  "prettier": "office-addin-prettier-config"
+  "prettier": "office-addin-prettier-config",
+  "jest": {
+    
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js",
+      "//": "Comment goes here",
+      "verbose": true
+    }
+  }
 }

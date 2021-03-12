@@ -1,5 +1,4 @@
 var add = require ('./taskpane');
-
 describe('The signature list', () => {
     beforeEach(() => {
         // Call the Mok function for addTolib to add three objects' signature; Each has a title and message.
@@ -29,7 +28,7 @@ describe('The signature list', () => {
         const signature = add.addToLib();
         expect(signature).toEqual([{"message": "Hello World" , "title":"Mohamed"},
                                    {"message": "Hello World" , "title":"Alex"},
-                                   {"message": "Hello World" , "title":"Logan"}]);
+                                   {"message": "Hello World" , "title":"Logan"}]);                      
 
     });
 });
@@ -39,3 +38,6 @@ describe ('Check the array list of the signature.', () => {
 
     });
 });
+                                   
+
+   

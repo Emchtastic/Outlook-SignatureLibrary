@@ -104,8 +104,7 @@ function applyRandomSignature(){
 	Office.context.mailbox.item.body.setSelectedDataAsync(message)
 }
 
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
+// Exports all methods
 module.exports = {
 	getRandom : getRandom ,
 	applyRandomSignature : applyRandomSignature,
@@ -115,3 +114,5 @@ module.exports = {
 	addToLib : addToLib,
 	signatureList : signatureList
 }
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
