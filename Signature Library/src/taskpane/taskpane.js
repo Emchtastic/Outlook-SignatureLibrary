@@ -7,7 +7,8 @@
 //import "../../assets/icon-16.png";
 //import "../../assets/icon-32.png";
 //import "../../assets/icon-80.png";
-
+global.Office = () => ({});
+global.Office.onReady = () => ({});
 var signatureList = [{
     title : "Yoda",
     message : "“The greatest teacher, failure is.”\n ---Yoda"
@@ -120,16 +121,22 @@ function applyRandomSignature(){
     Office.context.mailbox.item.body.setSelectedDataAsync(message)
 }
 
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
+// Exports all methods
 module.exports = {
 	getRandom : getRandom ,
 	applyRandomSignature : applyRandomSignature,
 	applySignature : applySignature,
 	removeInList : removeInList,
 	addToLib : addToLib,
+<<<<<<< HEAD
 	signatureList : signatureList,
 }
 
 // reference code: https://www.kirupa.com/html5/storing_and_retrieving_an_array_from_local_storage.htm, https://stackoverflow.com/questions/17745292/how-to-retrieve-all-localstorage-items-without-knowing-the-keys-in-advance
 
+=======
+	signatureList : signatureList
+}
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+>>>>>>> remotes/origin/SS-14--Mohamed
