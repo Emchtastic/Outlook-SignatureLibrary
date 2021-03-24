@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 var applySignature = import("applySignature");
 describe('apply Signature test', () => {
     it('title should not be null',()=>{
@@ -18,7 +17,6 @@ describe('apply Signature test', () => {
         });
         it ('message should be null',()=>{});
         });
-=======
 var add = require ('./taskpane');
 describe('The signature list', () => {
     beforeEach(() => {
@@ -60,6 +58,3 @@ describe ('Check the array list of the signature.', () => {
     });
 });
                                    
-
-   
->>>>>>> remotes/origin/SS-14--Mohamed
