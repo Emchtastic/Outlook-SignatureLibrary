@@ -1,3 +1,22 @@
+var applySignature = import("applySignature");
+describe('apply Signature test', () => {
+    it('title should not be null',()=>{
+    const title = window.document.getElementById('signature');
+    expect(title).toBeDefined();
+    });
+    it('email Message Should equal singature with title',()=>{
+        const _title = 'hello';
+        const singatureList= [
+        {title: 'hello', message: 'Message'}
+        ]
+        let _message = null;
+        singatureList.forEach(({title, message})=>{
+        if (_title === title)_message = message;
+        });
+        expect(_message).toEqual('Message');
+        });
+        it ('message should be null',()=>{});
+        });
 var add = require ('./taskpane');
 describe('The signature list', () => {
     beforeEach(() => {
@@ -5,22 +24,15 @@ describe('The signature list', () => {
         add.addToLib = jest.fn(() => [
             {
                title : "Mohamed",
-     
                message : "Hello World"
             },
-
             {
                 title : "Alex",
-     
-                message : "Hello World"
-               
+                message : "Hello World"  
             },
-
             {
                 title : "Logan",
-     
                 message : "Hello World"
-               
             }
         ]);
     });
@@ -35,9 +47,6 @@ describe('The signature list', () => {
 describe ('Check the array list of the signature.', () => {
     test ('Should have three objects in the array signature list.',() =>{
         expect (add.signatureList.length).toBe(3);
-
     });
 });
                                    
-
-   
