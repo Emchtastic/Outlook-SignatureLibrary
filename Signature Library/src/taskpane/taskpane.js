@@ -38,6 +38,7 @@ Office.onReady(info => {
 
 function addToLib() {
     /* 
+    * @author Alex Emch <aemch@msudenver.edu>
     * This function creates a new object called newSignature that contains a title and message. 
     * The title and message of the new object are set to the current values within the title_input and message_input boxes.
     * After the newSignature elements are set, the method then adds it to the signature array and set the user input boxes to empty ("").
@@ -61,13 +62,14 @@ function addToLib() {
 
 
 function allStorage() {
-        /* 
-        * This function is designed to populate the signatureList array and signatures dropdown list with any saved signature within local storage.
-        * a "keys" variable is created that holds the items in local storage 
-        * The keys item is then iterated to add each signature as a new signature object into the array
-        */ 
-        keys = Object.keys(localStorage),
-        i = keys.length;
+    /* 
+    * @author Logan Fry
+    * This function is designed to populate the signatureList array and signatures dropdown list with any saved signature within local storage.
+    * The "keys" variable is created that holds the items in local storage 
+    * The keys item is then iterated to add each signature as a new signature object into the array
+    */ 
+    keys = Object.keys(localStorage),
+    i = keys.length;
     while ( i-- ) {
         if (keys[i].includes("77") || keys[i].includes("loglevel:webpack-dev-server") || keys[i].includes("Office API client")) {
             i--
@@ -88,7 +90,13 @@ function allStorage() {
 }
 
 function removeInList() {
-    // Removes the chosen element in the dropList
+    /*
+    * @author Alex Emch <aemch@msudenver.edu>
+    * Removes the chosen element in the dropList by getting the title of the signature to remove from the dropdown list via .querySelector
+    * The method then iterates through the array and removes the signature object via comparing titles
+    * The method also removes the title from the dropdown list
+    */
+    
     var title = document.querySelector('#signature').value;
     var y = document.getElementById("signatures");
     
@@ -105,6 +113,12 @@ function removeInList() {
 }
 
 function applySignature(){
+    /*
+    * @author Alex Emch <aemch@msudenver.edu>
+    * This method gets the value signature title that the user chooses from the dropdown list (via querySelector) and places it in the var title.
+    * The method then iterates through the signatureList array and gets the chosen signature message via comparing var title with the signature object titles.
+    * The signature message is then set in the email body as a string.
+    */
     var title = document.querySelector('#signature').value;
     var emailMessage = null
 
@@ -120,10 +134,18 @@ function applySignature(){
 }
 
 function getRandom() {
+    
     return Math.floor(Math.random()* (signatureList.length)+1)
   }
 
 function applyRandomSignature(){
+    /*
+    * @author Logan Fry
+    * This method gets a random signature message from the array signatureList then places that random message in the email body.
+    * Method functions utilizing the getRandom() method to get a random index of signatureList then grabs the signature message from that index.
+    * The method then places that chosen signature message into the email body in the exact way that applySignature() does.
+    */
+
     var chosenSignature = signatureList[getRandom()-1];
     var message = chosenSignature.message
 
