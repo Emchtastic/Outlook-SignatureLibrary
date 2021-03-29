@@ -37,7 +37,11 @@ Office.onReady(info => {
 
 
 function addToLib() {
-    // A function that creates a new object with title and message then adds it to the signature array
+    /* 
+    * This function creates a new object called newSignature that contains a title and message. 
+    * The title and message of the new object are set to the current values within the title_input and message_input boxes
+    * After the newSignature elements are set, the method then adds it to the signature array and set the user input boxes to ""
+    */ 
     var newSignature = {title : document.getElementById("title_input").value, 
         message : document.getElementById("message_input").value
         }
