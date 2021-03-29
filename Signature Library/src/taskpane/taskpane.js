@@ -39,8 +39,8 @@ Office.onReady(info => {
 function addToLib() {
     /* 
     * This function creates a new object called newSignature that contains a title and message. 
-    * The title and message of the new object are set to the current values within the title_input and message_input boxes
-    * After the newSignature elements are set, the method then adds it to the signature array and set the user input boxes to ""
+    * The title and message of the new object are set to the current values within the title_input and message_input boxes.
+    * After the newSignature elements are set, the method then adds it to the signature array and set the user input boxes to empty ("").
     */ 
     var newSignature = {title : document.getElementById("title_input").value, 
         message : document.getElementById("message_input").value
@@ -61,6 +61,11 @@ function addToLib() {
 
 
 function allStorage() {
+        /* 
+        * This function is designed to populate the signatureList array and signatures dropdown list with any saved signature within local storage.
+        * a "keys" variable is created that holds the items in local storage 
+        * The keys item is then iterated to add each signature as a new signature object into the array
+        */ 
         keys = Object.keys(localStorage),
         i = keys.length;
     while ( i-- ) {
