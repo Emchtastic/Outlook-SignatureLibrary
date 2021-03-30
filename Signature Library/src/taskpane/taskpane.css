@@ -76,13 +76,20 @@
   cursor: pointer;
 }
 
+
+/*
+ * @author Alex Emch
+ * turns font into bold
+ */
 b {
     font-weight: bold;
 }
 
 
 /*
- * My added section
+ * @author Marie Diaoune
+ * The arrangement, color, and size of the Modals, buttons, containers and input
+ * Includes the zoom animation of the modals
  */
 
 
@@ -97,7 +104,7 @@ input[type=text], input[type=text] {
   box-sizing: border-box;
 }
 
-/* Set a style for all buttons */
+/* Set a style for all buttons in the Add-in */
 button {
   background-color: #4CAF50;
   color: white;
@@ -112,7 +119,7 @@ button:hover {
   opacity: 0.8;
 }
 
-/* Extra styles for the cancel button */
+/* Extra styles for the cancel button with a red button*/
 .cancelbtn {
   width: auto;
   padding: 10px 18px;
@@ -126,7 +133,7 @@ button:hover {
 }
 
 .container {
-  padding: 10px;
+  padding: 10px; /* Placement of container compared to surrounding objects*/
 }
 
 span.psw {
@@ -157,7 +164,7 @@ span.psw {
   width: 100%; /* Could be more or less, depending on screen size */
 }
 
-/* The Close Button (x) */
+/* The Close Button "X" on right of the Modal*/
 .close {
   position: absolute;
   right: 25px;
@@ -173,7 +180,7 @@ span.psw {
   cursor: pointer;
 }
 
-/* Add Zoom Animation */
+/* Add Zoom Animation of the Modal */
 .animate {
   -webkit-animation: animatezoom 0.6s;
   animation: animatezoom 0.6s
@@ -191,9 +198,12 @@ span.psw {
 
 
 
-  /* 
-    *Adding the divided window
-  */
+/* 
+ * @author Marie Diaoune
+ * Adding a window that is divided into two parts
+ * One part a tablist, the other is open area
+ * The font, color, size of the tablist content and the secondary section 
+ */
 
 * {box-sizing: border-box}
 body {font-family: "Lato", sans-serif;}
@@ -207,7 +217,7 @@ body {font-family: "Lato", sans-serif;}
   height: 80%;
 }
 
-/* Style the buttons inside the tab */
+/* Style the buttons inside the tablist */
 .tab button {
   display: block;
   background-color: inherit;
@@ -244,7 +254,10 @@ body {font-family: "Lato", sans-serif;}
 }
 
 
-/*Fixing the placement of addToLib button*/
+/*
+  * @author Marie Diaoune
+  * Fixing the placement of addToLib button to the Modal
+*/
 .adjustableSize{
   float: right;
   padding: 10px 18px;
