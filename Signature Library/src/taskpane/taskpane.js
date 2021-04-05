@@ -7,10 +7,6 @@
 //import "../../assets/icon-16.png";
 //import "../../assets/icon-32.png";
 //import "../../assets/icon-80.png";
-
-//global.Office = () => ({});
-//global.Office.onReady = () => ({});
-
 var signatureList = [{
     title : "Yoda",
     message : "“The greatest teacher, failure is.”\n ---Yoda"
