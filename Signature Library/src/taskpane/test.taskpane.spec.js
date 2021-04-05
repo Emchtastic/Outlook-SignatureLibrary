@@ -1,3 +1,5 @@
+global.Office = () => ({});
+global.Office.onReady = () => ({});
 var applySignature = import("applySignature");
 describe('apply Signature test', () => {
     it('title should not be null',()=>{
