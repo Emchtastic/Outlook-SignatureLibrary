@@ -7,8 +7,7 @@
 //import "../../assets/icon-16.png";
 //import "../../assets/icon-32.png";
 //import "../../assets/icon-80.png";
-global.Office = () => ({});
-global.Office.onReady = () => ({});
+
 var signatureList = [{
     title : "Yoda",
     message : "“The greatest teacher, failure is.”\n ---Yoda"
@@ -50,13 +49,14 @@ function addToLib() {
         updatedDropdown.appendChild(option);
         localStorage.setItem(newSignature.title, newSignature.message) // NEW LF
 
-        document.getElementById("title_input").value = ""
+		document.getElementById("title_input").value = ""
         document.getElementById("message_input").value = ""
 
 }
 
 
 function allStorage() {
+    var values = [],
         keys = Object.keys(localStorage),
         i = keys.length;
     while ( i-- ) {
@@ -68,6 +68,7 @@ function allStorage() {
                 title : keys[i],
                 message : localStorage.getItem(keys[i]),
             }
+            values.push(signature);
             signatureList.push(signature);
     
             var updatedDropdown = document.getElementById("signatures");
@@ -121,17 +122,15 @@ function applyRandomSignature(){
     Office.context.mailbox.item.body.setSelectedDataAsync(message)
 }
 
-// Exports all methods
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
 module.exports = {
-	getRandom : getRandom ,
-	applyRandomSignature : applyRandomSignature,
-	applySignature : applySignature,
-	removeInList : removeInList,
-	addToLib : addToLib,
-	signatureList : signatureList
+    getRandom : getRandom ,
+    applyRandomSignature : applyRandomSignature,
+    applySignature : applySignature,
+    showLibrary : showLibrary ,
+    removeInList : removeInList,
+    addToLib : addToLib,
 }
 
 // reference code: https://www.kirupa.com/html5/storing_and_retrieving_an_array_from_local_storage.htm, https://stackoverflow.com/questions/17745292/how-to-retrieve-all-localstorage-items-without-knowing-the-keys-in-advance
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-
