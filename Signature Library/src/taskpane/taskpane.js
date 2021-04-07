@@ -29,6 +29,7 @@ Office.onReady(info => {
         document.getElementById("applySignatureButton").onclick  = applySignature;
         document.getElementById("imFeelingLucky").onclick  = applyRandomSignature;
         document.getElementById("mySearch").onclick = searchForSig;
+        document.getElementById("addTab").onclick  = newTab; 
   
     }
 });
@@ -68,6 +69,13 @@ function searchForSig() {
       li[i].style.display = "none";
     }
   }
+}
+
+function newTab(){
+	var x = 'New Tab'
+    var menu = document.getElementById("myMenu");
+    menu.append(x);
+    myFunction();
 }
 
 
