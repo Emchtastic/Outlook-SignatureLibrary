@@ -59,4 +59,24 @@ describe ('Check the array list of the signature.', () => {
 
     });
 });
-                                   
+
+
+describe('Remove the signature from the list', () => {
+    beforeEach(() => {
+        // Call the Mok function for addTolib to add objects' signature; has a title and message.
+        // Call the removeInList function to remove the signature from the list 
+        add.addToLib = jest.fn(() => [
+            {
+                title : "Work",
+                message : "Hello World"
+            },
+        ]);
+        add.removeInList = add.addToLib
+    });
+    test('Should be removed signature from the list', () => {
+        const signature = add.removeInList();
+        expect(signature).toEqual([{ message : "Hello World","title":"Work"}]);                      
+
+    });
+});
+

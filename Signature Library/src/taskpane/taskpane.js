@@ -129,7 +129,8 @@ module.exports = {
     applySignature : applySignature,
     removeInList : removeInList,
     addToLib : addToLib,
-    signatureList: signatureList
+    signatureList: signatureList,
+    allStorage : allStorage
     
 }
 
