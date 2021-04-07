@@ -28,7 +28,7 @@ Office.onReady(info => {
         document.getElementById("addToLib").onclick  = addToLib;
         document.getElementById("applySignatureButton").onclick  = applySignature;
         document.getElementById("imFeelingLucky").onclick  = applyRandomSignature;
-
+        document.getElementById("mySearch").onclick = searchForSig;
   
     }
 });
@@ -52,6 +52,24 @@ function addToLib() {
         document.getElementById("message_input").value = ""
 
 }
+
+
+function searchForSig() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("mySearch");
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("myMenu");
+  li = ul.getElementsByTagName("li");
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+
 
 
 function allStorage() {
