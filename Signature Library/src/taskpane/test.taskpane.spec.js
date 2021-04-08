@@ -88,3 +88,11 @@ describe('Apply Random Signature from the list', () => {
 
     });
 });
+
+describe('Test get getRandom', () => {
+    test('Should pick a randpm result', () => {
+        const actual = add.getRandom();
+        expect(actual).toBeGreaterThanOrEqual*(1)                 
+    })
+   
+  });
