@@ -80,3 +80,11 @@ describe('Remove the signature from the list', () => {
     });
 });
 
+describe('Apply Random Signature from the list', () => {
+    test('Should be signature message apply random mailbox', () => {
+        const result = add.signatureList[add.getRandom()-1]
+        const comp = add.signatureList[0]
+        expect(result.message).toEqual(comp.message);                  
+
+    });
+});
