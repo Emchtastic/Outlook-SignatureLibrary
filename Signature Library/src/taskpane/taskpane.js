@@ -29,8 +29,7 @@ Office.onReady(info => {
         document.getElementById("applySignatureButton").onclick  = applySignature;
         document.getElementById("imFeelingLucky").onclick  = applyRandomSignature;
         document.getElementById("mySearch").onclick = searchForSig;
-        document.getElementById("addTab").onclick  = newTab; 
-  
+        document.getElementById("addTab").onclick  = addTab; 
     }
 });
 
@@ -71,11 +70,71 @@ function searchForSig() {
   }
 }
 
+
+var menuItems = [
+  {href: '#', text: 'New Tab'}
+];
+
+
+
+function addTab(){
+
+  // A few variables for use later
+  var menuElem = document.getElementById("left"),
+    menuList = document.getElementById("myMenu"), 
+    menuItem, menuLink;
+
+  menuElem.appendChild(menuList);
+
+  // Cycle over each nav item
+  for (var i = 0; i < menuItems.length; i++) {
+    // Create a fresh list item, and anchor
+    menuItem = document.createElement("li");
+    menuLink = document.createElement("a");
+    
+    // Set properties on anchor
+    menuLink.href = menuItems[i].href;
+    menuLink.innerHTML = menuItems[i].text;
+    
+    // Add anchor to list item, and list item to list
+    menuItem.appendChild(menuLink);
+    menuList.appendChild(menuItem);
+  }
+
+  // Set first list item as current
+  menuList.children[0].className = "current";
+
+  // Add list to body (or anywhere else)
+  window.onload = function addTab() {
+    document.body.appendChild(menuElem);
+  }
+
+}
 function newTab(){
-	var x = 'New Tab'
-    var menu = document.getElementById("myMenu");
-    menu.append(x);
-    myFunction();
+  
+  /*var menu = document.getElementById("myMenu");
+  var ulMenu = document.createElement("ul");
+ulMenu.value =
+  "<ul id='tabs'>"
+   "<li><a href=''>New Tab</a></li> "
+  "</ul>";
+
+menu.appendChild( ulMenu );
+
+	var x = document.createElement('<li><a href="#">New tab</a></li>');
+  
+  var menu = document.getElementById("myMenu");
+  menu.append(x);*/
+
+  //$("#myMenu").append('<li><a href="#">New tab</a></li>');
+  /*$(document).ready(function(){
+    $("addTab").click(function(){
+        $("#myMenu").append('<li><a href="#">New tab</a></li>');
+    });
+});*/
+  //searchForSig;
+
+    
 }
 
 
