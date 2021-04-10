@@ -28,9 +28,8 @@ Office.onReady(info => {
       document.getElementById("addToLib").onclick  = addToLib;
       document.getElementById("applySignatureButton").onclick  = applySignature;
       document.getElementById("imFeelingLucky").onclick  = applyRandomSignature;
-      document.getElementById("mySearch").onclick = searchForSig;
       document.getElementById("OutsideModal").onclick = showChoice; 
-      document.getElementById("mySearch").onkeydown = searchForSig();
+      document.getElementById("mySearch").onkeydown = searchForSig;
   }
 });
 
