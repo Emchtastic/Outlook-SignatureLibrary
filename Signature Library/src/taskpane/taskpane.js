@@ -29,7 +29,7 @@ Office.onReady(info => {
       document.getElementById("applySignatureButton").onclick  = applySignature;
       document.getElementById("imFeelingLucky").onclick  = applyRandomSignature;
       document.getElementById("mySearch").onclick = searchForSig;
-      document.getElementById("myMenu").onclick = showChoice; 
+      document.getElementById("OutsideModal").onclick = showChoice; 
   }
 });
 
@@ -72,11 +72,17 @@ for (i = 0; i < li.length; i++) {
 
 
 function showChoice(){
-var ul = document.getElementById('myMenu');
-ul.addEventListener('click', function(e) {
-  document.getElementById("Sig_title").value = e.target.innerHTML
+  var ul = document.getElementById('myMenu');
+  ul.addEventListener('click', function(e) {
+    document.getElementById("Sig_title").value = e.target.innerHTML
 })
 
+for (i = 0; i < signatureList.length; i++){
+  if (signatureList[i].title == document.getElementById("Sig_title").value) {
+    document.getElementById("Sig_message").value = signatureList[i].message
+  }
+
+}
 }
 
 
