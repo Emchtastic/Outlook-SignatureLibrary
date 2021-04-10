@@ -28,9 +28,8 @@ Office.onReady(info => {
       document.getElementById("addToLib").onclick  = addToLib;
       document.getElementById("applySignatureButton").onclick  = applySignature;
       document.getElementById("imFeelingLucky").onclick  = applyRandomSignature;
-      document.getElementById("mySearch").onclick = searchForSig;
       document.getElementById("OutsideModal").onclick = showChoice; 
-      document.getElementById("mySearch").onkeydown = searchForSig();
+      document.getElementById("mySearch").onkeyup = searchForSig;
   }
 });
 
@@ -132,33 +131,6 @@ window.onload = function addTab() {
 }
 
 }
-function newTab(){
-
-/*var menu = document.getElementById("myMenu");
-var ulMenu = document.createElement("ul");
-ulMenu.value =
-"<ul id='tabs'>"
- "<li><a href=''>New Tab</a></li> "
-"</ul>";
-
-menu.appendChild( ulMenu );
-
-var x = document.createElement('<li><a href="#">New tab</a></li>');
-
-var menu = document.getElementById("myMenu");
-menu.append(x);*/
-
-//$("#myMenu").append('<li><a href="#">New tab</a></li>');
-/*$(document).ready(function(){
-  $("addTab").click(function(){
-      $("#myMenu").append('<li><a href="#">New tab</a></li>');
-  });
-});*/
-//searchForSig;
-
-  
-}
-
 
 
 function allStorage() {
