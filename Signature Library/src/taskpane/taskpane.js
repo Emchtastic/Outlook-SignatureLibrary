@@ -74,7 +74,7 @@ for (i = 0; i < li.length; i++) {
 function showChoice(){
 var ul = document.getElementById('myMenu');
 ul.addEventListener('click', function(e) {
-  Office.context.mailbox.item.body.setSelectedDataAsync(e.target.text)
+  document.getElementById("Sig_title").value = e.target.innerHTML
 })
 
 }
