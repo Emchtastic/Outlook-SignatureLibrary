@@ -30,6 +30,7 @@ Office.onReady(info => {
       document.getElementById("imFeelingLucky").onclick  = applyRandomSignature;
       document.getElementById("mySearch").onclick = searchForSig;
       document.getElementById("OutsideModal").onclick = showChoice; 
+      document.getElementById("mySearch").onkeydown = searchForSig();
   }
 });
 
