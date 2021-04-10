@@ -28,7 +28,6 @@ Office.onReady(info => {
         document.getElementById("addToLib").onclick  = addToLib;
         document.getElementById("applySignatureButton").onclick  = applySignature;
         document.getElementById("imFeelingLucky").onclick  = applyRandomSignature;
-        document.getElementById("mySearch").onclick = searchForSig;
         document.getElementById("addTab").onclick  = addTab; 
     }
 });
@@ -70,7 +69,6 @@ function searchForSig() {
   }
 }
 
-
 var menuItems = [
   {href: '#', text: 'New Tab'}
 ];
@@ -110,32 +108,37 @@ function addTab(){
   }
 
 }
-function newTab(){
+/*function removeTab(){
+
+    // A few variables for use later
+    var menuElem = document.getElementById("left"),
+      menuList = document.getElementById("myMenu"), 
+      menuItem, menuLink;
   
-  /*var menu = document.getElementById("myMenu");
-  var ulMenu = document.createElement("ul");
-ulMenu.value =
-  "<ul id='tabs'>"
-   "<li><a href=''>New Tab</a></li> "
-  "</ul>";
-
-menu.appendChild( ulMenu );
-
-	var x = document.createElement('<li><a href="#">New tab</a></li>');
+    menuElem.appendChild(menuList);
   
-  var menu = document.getElementById("myMenu");
-  menu.append(x);*/
-
-  //$("#myMenu").append('<li><a href="#">New tab</a></li>');
-  /*$(document).ready(function(){
-    $("addTab").click(function(){
-        $("#myMenu").append('<li><a href="#">New tab</a></li>');
-    });
-});*/
-  //searchForSig;
+    // Cycle over each nav item
+    for (var i = 0; i < menuItems.length; i++) {
+      
+      if(menuItems[i].text == )
+      menuLink.href = menuItems[i].href;
+      menuLink.innerHTML = menuItems[i].text;
+      
+      // Add anchor to list item, and list item to list
+      menuItem.appendChild(menuLink);
+      menuList.appendChild(menuItem);
+    }
+  
+    // Set first list item as current
+    menuList.children[0].className = "current";
+  
+    // Add list to body (or anywhere else)
+    window.onload = function addTab() {
+      document.body.appendChild(menuElem);
+    }
 
     
-}
+}*/
 
 
 
