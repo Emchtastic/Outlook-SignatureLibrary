@@ -20,7 +20,7 @@ var signatureList = [{
     message : "“It’s not wise to upset a Wookie.”\n ---Han Solo"
 }]
 
-Office.initialize = allStorage;
+Office.initialize = allStorage; 
 
 Office.onReady(info => {
     if (info.host === Office.HostType.Outlook) {
@@ -29,7 +29,7 @@ Office.onReady(info => {
         document.getElementById("applySignatureButton").onclick  = applySignature;
         document.getElementById("imFeelingLucky").onclick  = applyRandomSignature;
         document.getElementById("mySearch").onclick = searchForSig;
-        document.getElementById("addTab").onclick  = addTab; 
+        document.getElementById("myMenu").onclick = showChoice; 
     }
 });
 
@@ -71,13 +71,28 @@ function searchForSig() {
 }
 
 
-var menuItems = [
-  {href: '#', text: 'New Tab'}
-];
+function showChoice(){
+  var ul = document.getElementById('myMenu');
+  ul.addEventListener('click', function(e) {
+    Office.context.mailbox.item.body.setSelectedDataAsync(e.target.text)
+  })
+  
+}
 
 
+function syncLibrary(){
+  //Sync menuItems with titles from signatureList
+  var menuItems = [
+  ];
 
-function addTab(){
+  for (i = 0; i < signatureList.length; i++){
+    var signatureTitle = {
+      href: '#',
+      text : signatureList[i].title
+    }
+
+    menuItems.push(signatureTitle)
+  }
 
   // A few variables for use later
   var menuElem = document.getElementById("left"),
@@ -161,6 +176,7 @@ function allStorage() {
             updatedDropdown.appendChild(option);
         }
 	}
+  syncLibrary();
 }
 
 function removeInList() {
@@ -192,6 +208,7 @@ function applySignature(){
     }
 
     Office.context.mailbox.item.body.setSelectedDataAsync(emailMessage)
+    
 
 }
 
