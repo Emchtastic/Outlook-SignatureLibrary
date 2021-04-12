@@ -52,25 +52,28 @@
                     <textarea placeholder="Signature message" id="Sig_message" cols="24" rows="5"></textarea>
                     <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Add new signature</button>
                       <div id="id01" class="modal">
-                          <form class="modal-content animate" action="/action_page.php" method="post">
-                              <div class="container">
-                              <label for="add_Signature"><b>Store new signature</b></label>
-                                <br><br>
-                              <input type="text" placeholder="Enter title" id="title_input" required>
-                                <textarea placeholder="Enter signature message here" id="message_input" cols="30" rows="5"></textarea>
-                                <br>
-                                
-                              </div>
+                        <div class = "modal-content">
+                            <form class="modal-content animate" method="post">
+                                <div class="container">
+                                  <label for="add_Signature"><b>Store new signature</b></label>
+                                    <br><br>
+                                  <input type="text" placeholder="Enter title" id="title_input" required>
+                                    <textarea placeholder="Enter signature message here" id="message_input" cols="30" rows="5"></textarea>
+                                    <br>
+                                    
+                                </div>
 
-                              <div class="container" style="background-color:#f1f1f1">
-                                    <button type='button' class = "addbtn" id='addToLib'>Add new signature to library</button>
-                                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Close</button>
-                            
-                              </div>
-                            </form>
+                                <div class="container" style="background-color:#f1f1f1">
+                                      <button type='button' class = "addbtn" id='addToLib'>Add new signature to library</button>
+                                      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Close</button>
+                              
+                                </div>
+                             </form>
+                          </div>
                         </div>
                     <button type='button' id='removeButton'>Delete signature from library</button>
-                </div>
+                        
+                 </div>
               </div>
 
 
