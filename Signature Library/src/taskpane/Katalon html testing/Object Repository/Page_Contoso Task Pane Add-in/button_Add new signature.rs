@@ -6,12 +6,12 @@
    <elementGuidId>edad554d-860b-4ffd-ae98-3fad85141f66</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>CSS</key>
-         <value>button</value>
-      </entry>
-      <entry>
          <key>XPATH</key>
          <value>//button[@onclick=&quot;document.getElementById('id01').style.display='block'&quot;]</value>
+      </entry>
+      <entry>
+         <key>CSS</key>
+         <value>button</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
