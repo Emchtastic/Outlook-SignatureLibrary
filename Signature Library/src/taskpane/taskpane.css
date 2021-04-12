@@ -235,8 +235,6 @@ body {
 .left {
   flex: 35%;
   padding: 15px 0;
-  overflow-y: auto;
-  overflow-x: hidden;
 }
 
 .left h2 {
@@ -262,6 +260,7 @@ body {
   list-style-type: none;
   padding: 0;
   margin: 0;
+  overflow-y: scroll;
   
 }
 
