@@ -21,7 +21,7 @@ WebUI.openBrowser('')
 
 WebUI.navigateToUrl('file:///Users/gabrielesquibel/Desktop/untitled%20folder%203/main/Signature%20Library/src/taskpane/taskpane.html')
 
-WebUI.click(findTestObject('Object Repository/Page_Contoso Task Pane Add-in/button_Show current signature library'))
+WebUI.click(findTestObject('Object Repository/Page_Contoso Task Pane Add-in/button_Add new signature'))
 
-WebUI.click(findTestObject('Object Repository/Page_Contoso Task Pane Add-in/button_Close'))
+WebUI.setText(findTestObject('Object Repository/Page_Contoso Task Pane Add-in/input_Store new signature_title_input'), 'can I type a title?')
 
