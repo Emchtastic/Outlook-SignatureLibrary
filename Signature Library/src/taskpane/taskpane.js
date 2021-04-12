@@ -24,7 +24,7 @@ Office.initialize = allStorage;
 
 Office.onReady(info => {
   if (info.host === Office.HostType.Outlook) {
-      document.getElementById("removeThis").onclick = removeInList;
+      document.getElementById("removeButton").onclick = removeInList;
       document.getElementById("addToLib").onclick  = addToLib;
       document.getElementById("applySignatureButton").onclick  = applySignature;
       document.getElementById("imFeelingLucky").onclick  = applyRandomSignature;
@@ -48,8 +48,14 @@ function addToLib() {
       updatedDropdown.appendChild(option);
       localStorage.setItem(newSignature.title, newSignature.message) // NEW LF
 
-  document.getElementById("title_input").value = ""
+      document.getElementById("title_input").value = ""
       document.getElementById("message_input").value = ""
+
+      //Clear and reset signature library window list
+      var menuList = document.getElementById("myMenu")
+      menuList.innerHTML = ""
+
+      syncLibrary();
 
 }
 
@@ -159,16 +165,17 @@ syncLibrary();
 }
 
 function removeInList() {
-  // Removes the chosen element in the dropList
-  var title = document.querySelector('#signature').value;
-  var y = document.getElementById("signatures");
-  
+  var title = document.getElementById("Sig_title").value
+  var dropDown = document.getElementById("signatures")
+  var LibraryList = document.getElementById("myMenu")
+
   var i;
   
   for (i = 0; i < signatureList.length; i++){
       if (signatureList[i].title == title) {
           signatureList.splice(i, 1)
-          y.children[i].remove()
+          dropDown.children[i].remove()
+          LibraryList.children[i].remove()
       }
 
   }
