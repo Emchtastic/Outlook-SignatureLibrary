@@ -17,13 +17,3 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-WebUI.openBrowser('')
-
-WebUI.navigateToUrl('file:///Users/gabrielesquibel/Desktop/untitled%20folder%203/main/Signature%20Library/src/taskpane/taskpane.html')
-
-WebUI.click(findTestObject('Object Repository/Page_Contoso Task Pane Add-in/button_Show current signature library'))
-
-WebUI.setText(findTestObject('Object Repository/Page_Contoso Task Pane Add-in/textarea_Hold 3_Sig_title'), 'This is the title')
-
-WebUI.setText(findTestObject('Object Repository/Page_Contoso Task Pane Add-in/textarea_Hold 3_Sig_message'), 'This is the message')
-
