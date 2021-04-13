@@ -20,7 +20,7 @@
  .ms-welcome__header {
     padding: 20px;
     padding-bottom: 30px;
-    padding-top: 100px;
+    padding-top: 30px;
     display: -webkit-flex;
     display: flex;
     -webkit-flex-direction: column;
@@ -152,7 +152,7 @@ span.psw {
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
-  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  margin: 5% auto 0% auto; /* 5% from the top, 15% from the bottom and centered */
   border: 1px solid #888;
   width: 100%; /* Could be more or less, depending on screen size */
 }
@@ -195,54 +195,6 @@ span.psw {
     *Adding the divided window
   */
 
-* {box-sizing: border-box}
-body {font-family: "Lato", sans-serif;}
-
-/* Style the tab */
-.tab {
-  float: left;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
-  width: 20%;
-  height: 80%;
-}
-
-/* Style the buttons inside the tab */
-.tab button {
-  display: block;
-  background-color: inherit;
-  color: black;
-  padding: 10px 16px;
-  width: 100%;
-  height: 100%;
-  border: none;
-  outline: none;
-  text-align: right;
-  cursor: pointer;
-  transition: 0.3s;
-  font-size: 14px;
-}
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #ddd;
-}
-
-/* Create an active/current "tab button" class */
-.tab button.active {
-  background-color: #ccc;
-}
-
-/* Style the tab content */
-.tabcontent {
-  float: left;
-  padding: 0px 12px;
-  border: 1px solid #ccc;
-  width: 70%;
-  border-left: none;
-  height: 100%;
-}
-
 
 /*Fixing the placement of addToLib button*/
 .adjustableSize{
@@ -250,4 +202,77 @@ body {font-family: "Lato", sans-serif;}
   padding: 10px 18px;
   width: 20em;
 }
+
+/*The buttons that are type buttons*/
+.button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: auto;
+}
+
+
+
+/*This is for my new Menu structure*/
+/*<meta name="viewport" content="width=device-width, initial-scale=1">*/
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create a column layout with Flexbox */
+.row {
+  display: contents;
+}
+
+/* Left column (menu) */
+.left {
+  flex: 35%;
+  padding: 15px 0;
+}
+
+.left h2 {
+  padding-left: 8px;
+}
+
+/* Right column (page content) */
+.right {
+  flex: 65%;
+  padding: 15px;
+}
+
+/* Style the search box */
+#mySearch {
+  width: 100%;
+  font-size: 18px;
+  padding: 11px;
+  border: 1px solid #ddd;
+}
+
+/* Style the navigation menu inside the left column */
+#myMenu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  max-height: 200px;
+}
+
+#myMenu li a {
+  padding: 12px;
+  text-decoration: none;
+  color: black;
+  display: block;
+}
+
+#myMenu li a:hover {
+  background-color: #eee;
+}
+
 

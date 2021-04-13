@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Contoso Task Pane Add-in</title>
+    <title>MSU Signature Library Outlook add-in</title>
 
     <!-- Office JavaScript API -->
     <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
@@ -30,42 +30,53 @@
         <p><label id="item-subject"></label></p>
     </main>
 
-	<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Add new signature</button>
-	<div id="id01" class="modal">
-  	  <form class="modal-content animate" action="/action_page.php" method="post">
-    	    <div class="container">
-      		<label for="add_Signature"><b>Store new signature</b></label>
-            <br><br>
-      		<input type="text" placeholder="Enter title" id="title_input" required>
-            <textarea placeholder="Enter signature message here" id="message_input" cols="30" rows="5"></textarea>
-            <br>
-            
-    	    </div>
-
-    	    <div class="container" style="background-color:#f1f1f1">
-                <button type='button' class = "addbtn" id='addToLib'>Add new signature to library</button>
-      	  	    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Close</button>
-        
-    	    </div>
-  	    </form>
-    </div>
+	
     
     <br><br>
 
-    <button onclick="document.getElementById('OutsideModal').style.display='block'" style="width:auto;" id = "showLib">Show current signature library</button>
+  <button onclick="document.getElementById('OutsideModal').style.display='block'" style="width:auto;" id = "showLib">Show current signature library</button>
 	<div id="OutsideModal" class="modal">
   	  <form class="modal-content animate" method="post">
     	    <!--div class="container"-->
-            <div class="tab">
-                <button class="tablinks" onclick="openSig(event, 'Placeholder1')" id="defaultOpen">Hold 1</button>
-                <button class="tablinks" onclick="openSig(event, 'Placeholder1')">Hold 2</button>
-                <button class="tablinks" onclick="openSig(event, 'Placeholder1')">Hold 3</button>
-            </div>
-              
-            <div id="Placeholder1" class="tabcontent">
-                <textarea placeholder="Signature title" id="Sig_title", cols="24"></textarea>
-                <textarea placeholder="Signature message" id="Sig_message" cols="24" rows="5"></textarea>
-            </div>
+            
+            <div class="row" id="row">
+                <div class="left" id="left" style="background-color:#bbb;">
+                  <h2>Signatures</h2>
+                  <input type="text" id="mySearch" placeholder="Search" title="Type in a signature name">
+                  <ul id="myMenu">
+                  </ul>
+                </div>
+                
+                <div class="right" style="background-color:#ddd;">
+                    <textarea placeholder="Signature title" id="Sig_title", cols="24"></textarea>
+                    <textarea placeholder="Signature message" id="Sig_message" cols="24" rows="5"></textarea>
+                    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Add new signature</button>
+                      <div id="id01" class="modal">
+                        <div class = "modal-content">
+                            <form class="modal-content animate" method="post">
+                                <div class="container">
+                                  <label for="add_Signature"><b>Store new signature</b></label>
+                                    <br><br>
+                                  <input type="text" placeholder="Enter title" id="title_input" required>
+                                    <textarea placeholder="Enter signature message here" id="message_input" cols="30" rows="5"></textarea>
+                                    <br>
+                                    
+                                </div>
+
+                                <div class="container" style="background-color:#f1f1f1">
+                                      <button type='button' class = "addbtn" id='addToLib'>Add new signature to library</button>
+                                      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Close</button>
+                              
+                                </div>
+                             </form>
+                          </div>
+                        </div>
+                    <button type='button' id='removeButton'>Delete signature from library</button>
+                        
+                 </div>
+              </div>
+
+
     	    <!--/div--->
 
     	    <div class="container" style="background-color:#f1f1f1">
@@ -86,9 +97,9 @@
           <option value="Vader">
           <option value="Han Solo"></option>
         </datalist>
-        <input type="button" id="applySignatureButton" value="Apply to email"/>
-        <input type="button" id="imFeelingLucky" value="I'm feeling lucky"/>
-        <input type="button" id="removeThis" value="Delete from library"/>
+        <br><br>
+        <input type="button" class="button" id="applySignatureButton" value="Apply to email"/>
+        <input type="button" class="button" id="imFeelingLucky" value="I'm feeling lucky"/>
         
       </form>
       <br><br><br>
