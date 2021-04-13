@@ -1,9 +1,0 @@
-<<<<<<< HEAD
-version: 0.0.9
-=======
-<<<<<<< HEAD
-version: 0.0.9
-=======
-version: 0.0.9
->>>>>>> 9264bb81f0a8b83e28fb4362148cd1154513866c
->>>>>>> SS-6_mdiaoune
