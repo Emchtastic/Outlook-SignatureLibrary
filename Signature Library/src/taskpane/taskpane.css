@@ -228,7 +228,7 @@ body {
 
 /* Create a column layout with Flexbox */
 .row {
-  display: flex;
+  display: contents;
 }
 
 /* Left column (menu) */
