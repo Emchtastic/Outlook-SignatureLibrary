@@ -261,7 +261,7 @@ body {
   padding: 0;
   margin: 0;
   overflow-y: auto;
-  
+  max-height: 200px;
 }
 
 #myMenu li a {
