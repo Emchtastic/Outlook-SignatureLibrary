@@ -59,6 +59,12 @@ function addToLib() {
 
 }
 
+function clear() {
+  document.getElementById("Sig_title").value = ""
+  document.getElementById("Sig_message").value = ""
+
+}
+
 
 function searchForSig() {
   var input, filter, ul, li, a, i;
@@ -180,6 +186,7 @@ function removeInList() {
 
   }
   localStorage.removeItem(title)
+  clear();
 }
 
 function applySignature(){
