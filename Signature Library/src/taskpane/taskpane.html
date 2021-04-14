@@ -1,6 +1,3 @@
-<!-- Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT License. -->
-<!-- This file shows how to design a first-run page that provides a welcome screen to the user about the features of the add-in. -->
-
 <!DOCTYPE html>
 <html>
 
@@ -8,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Contoso Task Pane Add-in</title>
+    <title>MSU Signature Library Outlook add-in</title>
 
     <!-- Office JavaScript API -->
     <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
@@ -26,122 +23,92 @@
         <h1 class="ms-font-su">The Signature Library</h1>
     </header>
     <section id="sideload-msg" class="ms-welcome__main">
-        <h2 class="ms-font-xl">Please sideload your add-in to see app body.</h2>
+        <h2 class="ms-font-xl">Let's add some signatures!</h2>
     </section>
     <main id="app-body" class="ms-welcome__main" style="display: none;">
-        <h2 class="ms-font-xl"> Let's add some signatures! </h2>
+        <h2 class="ms-font-xl"></h2>
         <p><label id="item-subject"></label></p>
-        
-        
     </main>
+
+	
     
-    Signature Title: <input type='text' id='title_input' />
-
     <br><br>
 
-    Signature Message: <input type="text" id="message_input" value="" size="100" maxlength="200">
+  <button onclick="document.getElementById('OutsideModal').style.display='block'" style="width:auto;" id = "showLib">Show current signature library</button>
+	<div id="OutsideModal" class="modal">
+  	  <form class="modal-content animate" method="post">
+    	    <!--div class="container"-->
+            
+            <div class="row" id="row">
+                <div class="left" id="left" style="background-color:#bbb;">
+                  <h2>Signatures</h2>
+                  <input type="text" id="mySearch" placeholder="Search" title="Type in a signature name">
+                  <ul id="myMenu">
+                  </ul>
+                </div>
+                
+                <div class="right" style="background-color:#ddd;">
+                    <textarea placeholder="Signature title" id="Sig_title", cols="24"></textarea>
+                    <textarea placeholder="Signature message" id="Sig_message" cols="24" rows="5"></textarea>
+                    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Add new signature</button>
+                      <div id="id01" class="modal">
+                        <div class = "modal-content">
+                            <form class="modal-content animate" method="post">
+                                <div class="container">
+                                  <label for="add_Signature"><b>Store new signature</b></label>
+                                    <br><br>
+                                  <input type="text" placeholder="Enter title" id="title_input" required>
+                                    <textarea placeholder="Enter signature message here" id="message_input" cols="30" rows="5"></textarea>
+                                    <br>
+                                    
+                                </div>
 
+                                <div class="container" style="background-color:#f1f1f1">
+                                      <button type='button' class = "addbtn" id='addToLib'>Add new signature to library</button>
+                                      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Close</button>
+                              
+                                </div>
+                             </form>
+                          </div>
+                        </div>
+                    <button type='button' id='removeButton'>Delete signature from library</button>
+                        
+                 </div>
+              </div>
+
+
+    	    <!--/div--->
+
+    	    <div class="container" style="background-color:#f1f1f1">
+      	  	    <button type="button" onclick="document.getElementById('OutsideModal').style.display='none'" class="cancelbtn">Close</button>
+    	    </div>
+  	    </form>
+    </div>
     <br><br>
 
-    <input type='button' value='Add to Library' id='addToLib' />
-
     <br><br>
-
-    <input type='button' value='Add to droplist' id='addToDrop' />
-
-    <br><br>
-
-    <input type='button' value='Add to list' id='addToList' />
-
-    <br><br>
-
-    <input type='button' value='Show current library' id='showLib' />
-
-    <br><br>
-    
-    <button type="button" onclick="removeLastInListFunction()">Delete last signature in list</button>
-
-    <br><br><br><br>
 
     <!-- Dropdown list of Signature titles -->
-    <div class="dropdown">
-        <button onclick="myFunction()" class="dropbtn">Signature Dropdown List</button>
-        <div id="dropList" class="dropdown-content">
-        </div>
-      </div>
-    <br><br>
-
-    <!-- Visible list of Signature titles -->
-    <form>
-        Current Signatures:
-        <br>
-        <ul id="sigList" size="4">
-        </ul>
-    </form>
+    Here are your signatures:
+    <form id="dropDownList" action="taskpane.js">
+        <input list="signatures" name="signature" id="signature">
+        <datalist id="signatures">
+          <option value="Yoda">
+          <option value="Vader">
+          <option value="Han Solo"></option>
+        </datalist>
+        <br><br>
+        <input type="button" class="button" id="applySignatureButton" value="Apply to email"/>
+        <input type="button" class="button" id="imFeelingLucky" value="I'm feeling lucky"/>
+        
+      </form>
+      <br><br><br>
+    
     <br>
 
-
-<script>
-    var signatureList = []
-
-    document.getElementById("addToDrop").onclick  = function() {
-
-        var node = document.createElement("Li");
-        var text = document.getElementById("title_input").value; 
-        var textnode=document.createTextNode(text);
-        node.appendChild(textnode);
-        document.getElementById("dropList").appendChild(node);
-    }
-
-    document.getElementById("addToList").onclick  = function() {
-
-        var ul = document.getElementById("sigList");
-        var li = document.createElement("li");
-        var text = document.getElementById("title_input").value;
-        li.appendChild(document.createTextNode(text));
-        ul.appendChild(li);
-        
-    }
-
-    document.getElementById("addToLib").onclick  = function() { 
-
-        var newSignature = {title : document.getElementById("title_input").value, 
-        message : document.getElementById("message_input").value
-        }
-
-        signatureList.push(newSignature)
-        
-    }
-
-    document.getElementById("showLib").onclick  = function() {
-        document.getElementById("item-subject").innerHTML = "<b>Current Library: </b>" + "<br>" + JSON.stringify(signatureList) 
-    }
-
-    function removeLastInListFunction() {
-        var x = document.getElementById("sigList");
-        x.removeChild(x.lastElementChild);
-    }
-
-    function myFunction() {
-        document.getElementById("dropList").classList.toggle("show");
-    }
-
-    // Close the dropdown menu if the user clicks outside of it
-    window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-            openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }
-</script>
 
 </body>
 </html>
 
-<!-- Referenced code: https://stackoverflow.com/questions/19908215/adding-user-input-to-a-list-of-text-items-on-a-html-page/42950658 -->
+<!-- Referenced code: https://stackoverflow.com/questions/19908215/adding-user-input-to-a-list-of-text-items-on-a-html-page/42950658 
+                     https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_vertical_tabs-->

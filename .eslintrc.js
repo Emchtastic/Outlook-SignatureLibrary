@@ -1,6 +1,7 @@
-{
+module.exports = {
     "env": {
         "browser": true,
+        "commonjs": true,
         "es2021": true,
         "node": true
     },
@@ -11,8 +12,7 @@
     ],
     "parserOptions": {
         "ecmaVersion": 12,
-        "parser": "@typescript-eslint/parser",
-        "sourceType": "module"
+        "parser": "@typescript-eslint/parser"
     },
     "plugins": [
         "vue",
@@ -20,4 +20,4 @@
     ],
     "rules": {
     }
-}
+};
