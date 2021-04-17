@@ -108,3 +108,12 @@ describe('Test get getRandom', () => {
         }
     }
 }
+
+
+describe('Test apply Random Signature from the list for another case.', () => {
+    it('Should call a random signature to sets the message.', () => {
+        const taskpane = require('./taskpane');
+        taskpane.applyRandomSignature();
+        expect(Office.context.mailbox.item.body.setSelectedDataAsync).toHaveBeenCalled();
+    })
+})
