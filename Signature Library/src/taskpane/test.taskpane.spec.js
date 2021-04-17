@@ -117,3 +117,32 @@ describe('Test apply Random Signature from the list for another case.', () => {
         expect(Office.context.mailbox.item.body.setSelectedDataAsync).toHaveBeenCalled();
     })
 })
+
+describe("Test addToLib for patr 2", () => {
+    beforeAll(() => {
+        document.body.innerHTML = `
+        <input type="text" placeholder="Enter title" id="title_input" required />
+          <textarea placeholder="Enter signature message here" id="message_input" cols="30" rows="5"></textarea>
+          <datalist id="signatures">
+            <option value="Yoda"> 
+            <option value="Vader"> 
+            <option value="Han Solo"></option>
+        </datalist>`
+        document.getElementById("title_input").value = 'title';
+        document.getElementById("message_input").value = 'message';
+    })
+    it('Updates the signature list, which is the object on the array.', () => {
+        const taskpane = require('./taskpane');
+        const signatureList = taskpane.signatureList;
+        taskpane.addToLib();
+        expect(signatureList[signatureList.length - 1].title).toEqual("Han Solo");
+        expect(taskpane.signatureList[signatureList.length - 1].message).toEqual('“It’s not wise to upset a Wookie.”\n ---Han Solo')
+    })
+    it('Test the signature input should be title and message.', () => {
+        const taskpane = require('./taskpane');
+        taskpane.addToLib();
+
+        expect(document.getElementById("title_input").value).toEqual("title");
+        expect(document.getElementById("message_input").value).toEqual("message");
+    })
+})
