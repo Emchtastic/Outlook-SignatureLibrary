@@ -215,7 +215,11 @@ module.exports = {
     removeInList : removeInList,
     addToLib : addToLib,
     signatureList: signatureList,
-    allStorage : allStorage
+    allStorage : allStorage,
+    clear :  clear,
+    syncLibrary : syncLibrary,
+    showChoice : showChoice,
+    searchForSig :  searchForSig
     
 }
 
