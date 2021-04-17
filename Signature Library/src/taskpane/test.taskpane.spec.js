@@ -141,8 +141,14 @@ describe("Test addToLib for patr 2", () => {
     it('Test the signature input should be title and message.', () => {
         const taskpane = require('./taskpane');
         taskpane.addToLib();
+        expect(document.getElementById("title_input").value).toBe('title');
+        expect(document.getElementById("message_input").value).toEqual('message');
+    })
 
-        expect(document.getElementById("title_input").value).toEqual("title");
-        expect(document.getElementById("message_input").value).toEqual("message");
+    it('Test to clears the signature input after adding should be title and message clear.', () => {
+        const taskpane = require('./taskpane');
+        taskpane.addToLib();
+        expect(document.getElementById("title_input").value = "").toBe('');
+        expect(document.getElementById("message_input").value = "").toBe('');
     })
 })
