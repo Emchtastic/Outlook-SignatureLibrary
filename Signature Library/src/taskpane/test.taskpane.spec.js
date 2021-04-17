@@ -95,3 +95,16 @@ describe('Test get getRandom', () => {
     })
    
   });
+
+  global.Office = {
+    onReady: jest.fn(),
+    context: {
+        mailbox: {
+            item: {
+                body: {
+                    setSelectedDataAsync: jest.fn()
+                }
+            }
+        }
+    }
+}
