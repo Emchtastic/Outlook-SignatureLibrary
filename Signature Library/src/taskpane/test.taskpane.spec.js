@@ -95,3 +95,81 @@ describe('Test get getRandom', () => {
     })
    
   });
+
+  global.Office = {
+    onReady: jest.fn(),
+    context: {
+        mailbox: {
+            item: {
+                body: {
+                    setSelectedDataAsync: jest.fn()
+                }
+            }
+        }
+    }
+}
+
+
+describe('Test apply Random Signature from the list for another case.', () => {
+    it('Should call a random signature to sets the message.', () => {
+        const taskpane = require('./taskpane');
+        taskpane.applyRandomSignature();
+        expect(Office.context.mailbox.item.body.setSelectedDataAsync).toHaveBeenCalled();
+    })
+})
+
+describe("Test addToLib for patr 2", () => {
+    beforeAll(() => {
+        document.body.innerHTML = `
+        <input type="text" placeholder="Enter title" id="title_input" required />
+          <textarea placeholder="Enter signature message here" id="message_input" cols="30" rows="5"></textarea>
+          <datalist id="signatures">
+            <option value="Yoda"> 
+            <option value="Vader"> 
+            <option value="Han Solo"></option>
+        </datalist>`
+        document.getElementById("title_input").value = 'title';
+        document.getElementById("message_input").value = 'message';
+    })
+    it('Updates the signature list, which is the object on the array.', () => {
+        const taskpane = require('./taskpane');
+        const signatureList = taskpane.signatureList;
+        taskpane.addToLib();
+        expect(signatureList[signatureList.length - 1].title).toEqual("Han Solo");
+        expect(taskpane.signatureList[signatureList.length - 1].message).toEqual('“It’s not wise to upset a Wookie.”\n ---Han Solo')
+    })
+    it('Test the signature input should be title and message.', () => {
+        const taskpane = require('./taskpane');
+        taskpane.addToLib();
+        expect(document.getElementById("title_input").value).toBe('title');
+        expect(document.getElementById("message_input").value).toEqual('message');
+    })
+
+    it('Test to clears the signature input after adding should be title and message clear.', () => {
+        const taskpane = require('./taskpane');
+        taskpane.addToLib();
+        expect(document.getElementById("title_input").value = "").toBe('');
+        expect(document.getElementById("message_input").value = "").toBe('');
+    })
+})
+
+describe("clear ", () => {
+    beforeAll(() => {
+        document.body.innerHTML = `
+        <textarea placeholder="Signature title" id="Sig_title", cols="24"></textarea>
+        <textarea placeholder="Signature message" id="Sig_message" cols="24" rows="5"></textarea>
+        <datalist id="signatures">
+            <option value="Yoda"> 
+            <option value="Vader"> 
+            <option value="Han Solo"></option>
+        </datalist>`
+        document.getElementById("Sig_title").value = ""
+        document.getElementById("Sig_message").value = ""
+    })
+    it('Should be Sig_title and Sig_message clear.', () => {
+        const taskpane = require('./taskpane');
+        taskpane.clear();
+        expect(document.getElementById("Sig_message").value).toEqual('');
+        expect(document.getElementById("Sig_title").value).toEqual('');
+    })
+})
