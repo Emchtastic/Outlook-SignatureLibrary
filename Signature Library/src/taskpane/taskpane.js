@@ -158,7 +158,7 @@ function allStorage() {
           updatedDropdown.appendChild(option);
       }
 }
-syncLibrary();
+//syncLibrary();
 }
 
 function removeInList() {
