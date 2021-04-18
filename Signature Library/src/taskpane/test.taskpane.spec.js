@@ -173,3 +173,27 @@ describe("clear ", () => {
         expect(document.getElementById("Sig_title").value).toEqual('');
     })
 })
+describe("allStorage", () => {
+    beforeAll(() => {
+        document.body.innerHTML = `<div id="signatures"></div>`;
+        localStorage.setItem('test', 'test');
+    })
+    beforeEach(() => localStorage.clear())
+    it('does not add items to local storage when the key is 77 or Office API client', () => {
+        localStorage.setItem('77', '77');
+        localStorage.setItem('Office API client', 'api client');
+        const taskpane = require('./taskpane');
+        const signatureList = taskpane.signatureList;
+        taskpane.allStorage();
+        expect(signatureList.some(signature => signature.title === '77')).toEqual(false)
+    })
+    it('adds items to the local storage', () => {
+        const initialOptionsCount = document.getElementById("signatures").childElementCount;
+        localStorage.setItem('test', 'test');
+        const taskpane = require('./taskpane');
+        const signatureList = taskpane.signatureList;
+        taskpane.allStorage();
+        expect(signatureList.some(signature => signature.title === 'test')).toEqual(true);
+        expect(document.getElementById("signatures").childElementCount).toEqual(initialOptionsCount + 1)
+    })
+})
