@@ -42,9 +42,14 @@ describe('Test get getRandom', () => {
         mailbox: {
             item: {
                 body: {
-                    setSelectedDataAsync: jest.fn()
-                }
-            }
-        }
-    }
-}
+                    setSelectedDataAsync: jest.fn(),
+                },
+            },
+        },
+    },
+};
+describe ('Check the array list of the signature.', () => {
+    test ('Should have three objects in the array signature list.',() =>{
+        expect (add.signatureList.length).toBe(3);
+    });
+});
