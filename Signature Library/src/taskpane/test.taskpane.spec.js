@@ -98,7 +98,6 @@ describe("clearAllMocksa and resetModules ", () => {
       });
     });
 
-    
   describe("Test clear ", () => {
     beforeAll(() => {
       document.body.innerHTML = `
@@ -144,6 +143,32 @@ describe("clearAllMocksa and resetModules ", () => {
       expect(document.getElementById("signatures").childElementCount).toEqual(initialOptionsCount + 1);
     });
   });
-
+  
+  describe("Test removeInList", () => {
+    beforeAll(() => {
+      // Used to mock the required html which is accessed by the function removeInList
+      document.body.innerHTML = `
+        <textarea placeholder="Signature title" id="Sig_title", cols="24">Yoda</textarea>
+        <textarea placeholder="Signature message" id="Sig_message" cols="24" rows="5"></textarea>
+        <datalist id="signatures">
+          <option value="Yoda" />
+          <option value="Vader" />
+          <option value="Han Solo" />
+        </datalist>
+        <ul id="myMenu">
+            <li><a href="#">Yoda</a></li>
+            <li><a href="#">Vader</a></li>
+            <li><a href="#">Han Solo</a></li>
+        </ul>
+        `;
+    });
+    it("removes the signature with the specified title", () => {
+      const taskpane = require("./taskpane");
+      localStorage.removeItem = jest.fn();
+      taskpane.removeInList();
+      expect(document.getElementById("signatures").childElementCount).toEqual(2);
+    });
   });
+  
+});
 
