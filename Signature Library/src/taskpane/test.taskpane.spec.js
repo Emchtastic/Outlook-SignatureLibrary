@@ -43,8 +43,8 @@ describe('Test get getRandom', () => {
             item: {
                 body: {
                     setSelectedDataAsync: jest.fn()
-                }
-            }
-        }
-    }
-}
+                },
+            },
+        },
+    },
+};
