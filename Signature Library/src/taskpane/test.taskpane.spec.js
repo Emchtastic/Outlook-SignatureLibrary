@@ -53,3 +53,49 @@ describe ('Check the array list of the signature.', () => {
         expect (add.signatureList.length).toBe(3);
     });
 });
+describe('Test applyRandomSignature.', () => {
+    it('Should call a random signature to sets the message.', () => {
+        const taskpane = require('./taskpane');
+        taskpane.applyRandomSignature();
+        expect(Office.context.mailbox.item.body.setSelectedDataAsync).toHaveBeenCalled();
+    });
+});
+
+describe("clearAllMocksa and resetModules ", () => {
+    afterEach(() => {
+      jest.clearAllMocks();
+      jest.resetModules();
+    });
+    describe(" Test addToLib", () => {
+      beforeAll(() => {
+        document.body.innerHTML = `
+          <input type="text" placeholder="Enter title" id="title_input" required />
+            <textarea placeholder="Enter signature message here" id="message_input" cols="30" rows="5"></textarea>
+            <datalist id="signatures">
+              <option value="Yoda"> 
+              <option value="Vader"> 
+              <option value="Han Solo"></option>
+          </datalist>
+          <ul id="myMenu"></ul>
+          <div id="left"></div>
+          `;
+        document.getElementById("title_input").value = "title";
+        document.getElementById("message_input").value = "message";
+      });
+  
+      it("updates the signatureList with values in fields with id title_input and message_input", () => {
+        const taskpane = require("./taskpane");
+        const signatureList = taskpane.signatureList;
+        taskpane.addToLib();
+        expect(signatureList[signatureList.length - 1].title).toEqual("title");
+        expect(taskpane.signatureList[signatureList.length - 1].message).toEqual("message");
+      });
+      it("clears the fields with id title_input and message_input after adding the value to signatureList", () => {
+        const taskpane = require("./taskpane");
+        taskpane.addToLib();
+        expect(document.getElementById("title_input").value).toEqual("");
+        expect(document.getElementById("message_input").value).toEqual("");
+      });
+    });
+  });
+
