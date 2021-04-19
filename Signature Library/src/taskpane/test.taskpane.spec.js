@@ -184,5 +184,30 @@ describe("clearAllMocksa and resetModules ", () => {
       expect(document.getElementById("myMenu").querySelector("li").querySelector("a").innerHTML).toEqual("Yoda");
     });
   });
+
+  describe("Test showChoice", () => {
+    beforeAll(() => {
+      document.body.innerHTML = `
+      <textarea placeholder="Signature title" id="Sig_title", cols="24"></textarea>
+      <textarea placeholder="Signature message" id="Sig_message" cols="24" rows="5"></textarea>
+      <ul id="myMenu">
+        <li><a>Yoda</a></li>
+        <li><a>Vader</a></li>
+      </ul>
+      `;
+    });
+    it("shows the clicked choice from myMenu", () => {
+      const taskpane = require("./taskpane");
+      taskpane.showChoice();
+      document.getElementById("myMenu").querySelector("li").querySelector("a").click();
+      expect(document.getElementById("Sig_title").value).toEqual("Yoda");
+    });
+    it("shows the right title corresponding to Sig_title value", () => {
+      const taskpane = require("./taskpane");
+      document.getElementById("Sig_title").value = "Yoda";
+      taskpane.showChoice();
+      expect(document.getElementById("Sig_message").value).toEqual('“The greatest teacher, failure is.”\n ---Yoda');
+    });
+  });
 });
 
