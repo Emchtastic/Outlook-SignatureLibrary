@@ -170,5 +170,19 @@ describe("clearAllMocksa and resetModules ", () => {
     });
   });
   
+  describe("syncLibrary", () => {
+    beforeAll(() => {
+      document.body.innerHTML = `
+      <div id="left"></div>
+      <ul id="myMenu"></ul>
+    `;
+    });
+    it("adds all the items in signatureList as a list", () => {
+      const taskpane = require("./taskpane");
+      taskpane.syncLibrary();
+      expect(document.getElementById("myMenu").childElementCount).toEqual(taskpane.signatureList.length);
+      expect(document.getElementById("myMenu").querySelector("li").querySelector("a").innerHTML).toEqual("Yoda");
+    });
+  });
 });
 
