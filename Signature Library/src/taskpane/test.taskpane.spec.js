@@ -97,5 +97,53 @@ describe("clearAllMocksa and resetModules ", () => {
         expect(document.getElementById("message_input").value).toEqual("");
       });
     });
+
+    
+  describe("Test clear ", () => {
+    beforeAll(() => {
+      document.body.innerHTML = `
+        <textarea placeholder="Signature title" id="Sig_title", cols="24"></textarea>
+        <textarea placeholder="Signature message" id="Sig_message" cols="24" rows="5"></textarea>
+        <datalist id="signatures">
+            <option value="Yoda"> 
+            <option value="Vader"> 
+            <option value="Han Solo"></option>
+        </datalist>`;
+      document.getElementById("Sig_title").value = "";
+      document.getElementById("Sig_message").value = "";
+    });
+    it("Should be Sig_title and Sig_message clear.", () => {
+      const taskpane = require("./taskpane");
+      taskpane.clear();
+      expect(document.getElementById("Sig_message").value).toEqual("");
+      expect(document.getElementById("Sig_title").value).toEqual("");
+    });
+  });
+
+  describe("Test allStorage", () => {
+    beforeAll(() => {
+      document.body.innerHTML = `<div id="signatures"></div>`;
+      localStorage.setItem("test", "test");
+    });
+    beforeEach(() => localStorage.clear());
+    it("does not add items to local storage when the key is 77 or Office API client", () => {
+      localStorage.setItem("77", "77");
+      localStorage.setItem("Office API client", "api client");
+      const taskpane = require("./taskpane");
+      const signatureList = taskpane.signatureList;
+      taskpane.allStorage();
+      expect(signatureList.some((signature) => signature.title === "77")).toEqual(false);
+    });
+    it("adds items to the local storage", () => {
+      const initialOptionsCount = document.getElementById("signatures").childElementCount;
+      localStorage.setItem("test", "test");
+      const taskpane = require("./taskpane");
+      const signatureList = taskpane.signatureList;
+      taskpane.allStorage();
+      expect(signatureList.some((signature) => signature.title === "test")).toEqual(true);
+      expect(document.getElementById("signatures").childElementCount).toEqual(initialOptionsCount + 1);
+    });
+  });
+
   });
 
