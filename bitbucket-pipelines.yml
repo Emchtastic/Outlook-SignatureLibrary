@@ -15,8 +15,8 @@ pipelines:
             - echo "Your build and test goes here..."
             - npm cache clean -force
             - npm init --yes
+            - ls -al #checking the package.json exists in current directory
             - npm install
-            - npm run test
       - step:
           name: 'Lint'
           script:
