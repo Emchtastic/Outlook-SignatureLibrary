@@ -11,8 +11,8 @@ pipelines:
           name: 'Build and Test'
           script:
             - echo "Your build and test goes here..."
-            - npm install
-            - npm test
+            - npm install --no-package-lock
+            - npm run test
       - step:
           name: 'Lint'
           script:
