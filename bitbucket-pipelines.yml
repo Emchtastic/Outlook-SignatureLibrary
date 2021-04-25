@@ -9,9 +9,11 @@ pipelines:
     - parallel:
       - step:
           name: 'Build and Test'
+          caches:
+            - node
           script:
             - echo "Your build and test goes here..."
-            - npm install --no-package-lock
+            - npm install
             - npm run test
       - step:
           name: 'Lint'
