@@ -11,6 +11,7 @@ pipelines:
           name: 'Build and Test'
           script:
             - echo "Your build and test goes here..."
+            - npm install
             - npm test
       - step:
           name: 'Lint'
