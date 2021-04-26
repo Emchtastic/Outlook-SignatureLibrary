@@ -1,10 +1,10 @@
-# README #
+# README # 
 
 This README would normally document whatever steps are necessary to get your application up and running.
 
 ### What is this repository for? ###
 
-* Quick summary
+* Quick summary: This is a repo to develop a signature library Microsoft Outlook app that will create and save email signatures to a local library
 * Version
 * [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
 
