@@ -18,7 +18,6 @@ pipelines:
             - ls -al #checking the package.json exists in current directory
             - npm install 
             - npm install jest --global
-            - jest --init
             - jest
       - step:
           name: 'Lint'
