@@ -37,7 +37,7 @@ function addToLib() {
       var option = document.createElement("option");
       option.value = newSignature.title;
       updatedDropdown.appendChild(option);
-      localStorage.setItem(newSignature.title, newSignature.message) // NEW LF
+      // localStorage.setItem(newSignature.title, newSignature.message) // NEW LF
 
       document.getElementById("title_input").value = ""
       document.getElementById("message_input").value = ""
@@ -136,30 +136,7 @@ window.onload = function addTab() {
 }
 
 
-function allStorage() {
-  var values = [],
-      keys = Object.keys(localStorage),
-      i = keys.length;
-  while ( i-- ) {
-      if (keys[i].includes("77") || keys[i].includes("loglevel:webpack-dev-server") || keys[i].includes("Office API client")) {
-          i--
-      }
-      else {
-          var signature = {
-              title : keys[i],
-              message : localStorage.getItem(keys[i]),
-          }
-          values.push(signature);
-          signatureList.push(signature);
-  
-          var updatedDropdown = document.getElementById("signatures");
-          var option = document.createElement("option");
-          option.value = signature.title;
-          updatedDropdown.appendChild(option);
-      }
-}
-syncLibrary();
-}
+
 
 function removeInList() {
   var title = document.getElementById("Sig_title").value
@@ -176,7 +153,7 @@ function removeInList() {
       }
 
   }
-  localStorage.removeItem(title)
+  // localStorage.removeItem(title)
   clear();
 }
 
