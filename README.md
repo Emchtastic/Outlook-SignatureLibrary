@@ -1,4 +1,4 @@
-# README # Signature Library
+# README # Signature Library Outlook Extension
 
 This README would normally document whatever steps are necessary to get your application up and running.
 
