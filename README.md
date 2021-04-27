@@ -14,7 +14,9 @@ This README would normally document whatever steps are necessary to get your app
 * Configuration
 * Dependencies
 * Database configuration
-* How to run tests
+* How to run tests:
+	-jest test software is utilized to run unit-tests. cmd "jest" within the extension folder "Signature Library" will run the tests.
+	example command: C:\Users\alex8\OneDrive\Desktop\Scrum Squad\main\Signature Library>jest
 * Deployment instructions
 
 ### Contribution guidelines ###
