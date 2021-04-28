@@ -21,6 +21,7 @@ Office.onReady(info => {
       document.getElementById("imFeelingLucky").onclick  = applyRandomSignature;
       document.getElementById("OutsideModal").onclick = showChoice; 
       document.getElementById("mySearch").onkeyup = searchForSig;
+      syncLibrary();
   }
 });
 
@@ -157,8 +158,7 @@ function allStorage() {
           option.value = signature.title;
           updatedDropdown.appendChild(option);
       }
-}
-//syncLibrary();
+  }
 }
 
 function removeInList() {
