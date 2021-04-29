@@ -11,7 +11,7 @@ var signatureList = [{
   message : "“It’s not wise to upset a Wookie.”\n ---Han Solo"
 }]
 
-Office.initialize = allStorage(); 
+Office.initialize = allStorage; 
 
 Office.onReady(info => {
   if (info.host === Office.HostType.Outlook) {
