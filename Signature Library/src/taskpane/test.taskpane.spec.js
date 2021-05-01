@@ -210,16 +210,3 @@ describe("clearAllMocksa and resetModules ", () => {
     });
   });
 });
-var searchForSig = import("searchForSig");
-describe('input test', () => {
-    it('input should not be null',()=>{
-    const input = window.document.getElementById('mySearch');
-    expect(input).toBeDefined();
-    });
-  });
-describe('ui test', () => {
-    it('ui should not be null',()=>{
-    const ui = window.document.getElementById('myMenu');
-    expect(ui).toBeDefined();
-    });
-});
