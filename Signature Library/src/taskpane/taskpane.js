@@ -1,17 +1,12 @@
+const sqlite3 = require('sqlite3').verbose();
+let db = new sqlite3.Database('./db/signatures.db');
+
 var signatureList = [{
-  title : "Yoda",
-  message : "“The greatest teacher, failure is.”\n ---Yoda"
-},
-{
-  title : "Vader",
-  message : "“All that I sense,\n is fear and dead men.”\n ---Darth Vader"
-},
-{
-  title : "Han Solo",
-  message : "“It’s not wise to upset a Wookie.”\n ---Han Solo"
+  title : "Default",
+  message : "“I am a mere placeholder”"
 }]
 
-Office.initialize = allStorage; 
+Office.initialize = sqlStorage; 
 
 Office.onReady(info => {
   if (info.host === Office.HostType.Outlook) {
@@ -137,29 +132,30 @@ window.onload = function addTab() {
 }
 
 
-function allStorage() {
-  var values = [],
-      keys = Object.keys(localStorage),
-      i = keys.length;
-  while ( i-- ) {
-      if (keys[i].includes("77") || keys[i].includes("loglevel:webpack-dev-server") || keys[i].includes("Office API client")) {
-          i--
-      }
-      else {
-          var signature = {
-              title : keys[i],
-              message : localStorage.getItem(keys[i]),
-          }
-          values.push(signature);
-          signatureList.push(signature);
-  
+function sqlStorage() {
+
+  db.serialize(function() {
+    db.each (
+        "select signatures.title, signatures.message from signatures", function(err, row) {
+            if (err) {
+                console.log(err)
+            }
+            console.log(row)
+            var signature = {
+                title : row.title,
+                message : row.message
+            }
+            signatureList.push(signature)
+
           var updatedDropdown = document.getElementById("signatures");
           var option = document.createElement("option");
           option.value = signature.title;
           updatedDropdown.appendChild(option);
-      }
-  }
+          }
+      )
+  })
 }
+ 
 
 function removeInList() {
   var title = document.getElementById("Sig_title").value

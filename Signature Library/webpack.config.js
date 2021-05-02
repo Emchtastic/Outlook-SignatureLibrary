@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const fs = require("fs");
 const webpack = require("webpack");
 
+
 const urlDev="https://localhost:3000/";
 const urlProd="https://www.contoso.com/"; // CHANGE THIS TO YOUR PRODUCTION DEPLOYMENT LOCATION
 
@@ -21,6 +22,9 @@ module.exports = async (env, options) => {
     resolve: {
       extensions: [".ts", ".tsx", ".html", ".js"]
     },
+    externals: {
+      'sqlite3':'commonjs sqlite3'
+  },
     module: {
       rules: [
         {
@@ -86,6 +90,7 @@ module.exports = async (env, options) => {
       port: process.env.npm_package_config_dev_server_port || 3000
     }
   };
+  
 
   return config;
 };
