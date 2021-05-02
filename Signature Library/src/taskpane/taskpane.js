@@ -4,7 +4,7 @@ var signatureList = [{
   message : "“I am a mere placeholder”"
 }]
 
-Office.initialize = sqlStorage; 
+//ffice.initialize = sqlStorage; 
 
 Office.onReady(info => {
   if (info.host === Office.HostType.Outlook) {
@@ -14,6 +14,7 @@ Office.onReady(info => {
       document.getElementById("imFeelingLucky").onclick  = applyRandomSignature;
       document.getElementById("OutsideModal").onclick = showChoice; 
       document.getElementById("mySearch").onkeyup = searchForSig;
+      document.getElementById("try").onclick = sqlStorage;
       syncLibrary();
   }
 });
@@ -131,28 +132,25 @@ window.onload = function addTab() {
 
 
 function sqlStorage() {
-const sqlite3 = require('sqlite3').verbose();
-let db = new sqlite3.Database('./db/signatures.db');
-  db.serialize(function() {
-    db.each (
-        "select signatures.title, signatures.message from signatures", function(err, row) {
-            if (err) {
-                console.log(err)
-            }
-            var signature = {
-                title : row.title,
-                message : row.message
-            }
-            signatureList.push(signature)
-
-          var updatedDropdown = document.getElementById("signatures");
-          var option = document.createElement("option");
-          option.value = signature.title;
-          updatedDropdown.appendChild(option);
-          }
-      )
-  })
-  db.close();
+//const sqlite3 = require('sqlite3').verbose();
+//let db = new sqlite3.Database('./db/signatures.db');
+//  db.serialize(function() {
+//    db.each (
+ //       "select signatures.title, signatures.message from signatures", function(row) {
+  //          var signature = {
+  //              title : row.title,
+  //              message : row.message
+  //          }
+//signatureList.push(signature)
+            console.log(signatureList)
+          //var updatedDropdown = document.getElementById("signatures");
+          //var option = document.createElement("option");
+          //option.value = signature.title;
+         // updatedDropdown.appendChild(option);
+         // }
+  //    )
+ // })
+ // db.close();
 }
  
 

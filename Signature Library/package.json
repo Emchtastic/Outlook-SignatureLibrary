@@ -2,7 +2,7 @@
   "name": "office-addin-taskpane-js",
   "version": "0.0.1",
   "repository": {
-    "type": "git",
+    "type": "git", 
     "url": "https://github.com/OfficeDev/Office-Addin-TaskPane-JS.git"
   },
   "license": "MIT",
@@ -26,9 +26,6 @@
     "validate": "office-addin-manifest validate manifest.xml",
     "watch": "webpack --mode development --watch",
     "test": "jest"
-  },
-  "dependencies": {
-    "sqlite3": "https://github.com/mapbox/node-sqlite3/tarball/master"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
