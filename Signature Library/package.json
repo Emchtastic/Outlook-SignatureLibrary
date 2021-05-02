@@ -25,9 +25,11 @@
     "stop": "office-addin-debugging stop manifest.xml",
     "validate": "office-addin-manifest validate manifest.xml",
     "watch": "webpack --mode development --watch",
-    "test" : "jest" 
+    "test": "jest"
   },
-  "dependencies": {},
+  "dependencies": {
+    "sqlite3": "^5.0.2"
+  },
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/polyfill": "^7.11.5",
