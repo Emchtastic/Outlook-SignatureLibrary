@@ -1,5 +1,3 @@
-const sqlite3 = require('sqlite3').verbose();
-let db = new sqlite3.Database('./db/signatures.db');
 
 var signatureList = [{
   title : "Default",
@@ -133,14 +131,14 @@ window.onload = function addTab() {
 
 
 function sqlStorage() {
-
+const sqlite3 = require('sqlite3').verbose();
+let db = new sqlite3.Database('./db/signatures.db');
   db.serialize(function() {
     db.each (
         "select signatures.title, signatures.message from signatures", function(err, row) {
             if (err) {
                 console.log(err)
             }
-            console.log(row)
             var signature = {
                 title : row.title,
                 message : row.message
@@ -154,6 +152,7 @@ function sqlStorage() {
           }
       )
   })
+  db.close();
 }
  
 
@@ -211,7 +210,7 @@ module.exports = {
     removeInList : removeInList,
     addToLib : addToLib,
     signatureList: signatureList,
-    allStorage : allStorage,
+    sqlStorage : sqlStorage,
     clear :  clear,
     syncLibrary : syncLibrary,
     showChoice : showChoice,

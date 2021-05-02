@@ -22,9 +22,6 @@ module.exports = async (env, options) => {
     resolve: {
       extensions: [".ts", ".tsx", ".html", ".js"]
     },
-    externals: {
-      'sqlite3':'commonjs sqlite3'
-  },
     module: {
       rules: [
         {
