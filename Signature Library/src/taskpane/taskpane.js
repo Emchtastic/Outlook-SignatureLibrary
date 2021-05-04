@@ -135,6 +135,10 @@ window.onload = function addTab() {
 
 }
 
+function removeUUID(str){
+  str = str.slice(36);
+  return str;
+}
 
 function allStorage() {
   var values = [],
@@ -143,7 +147,7 @@ function allStorage() {
   while ( i-- ) {
       if (keys[i].includes("e66d11c4-aceb-11eb-8529-0242ac130003")) {
         var signature = {
-          title : keys[i].str.slice(36),
+          title : removeUUID(keys[i]),
           message : localStorage.getItem(keys[i]),
       }
       values.push(signature);
