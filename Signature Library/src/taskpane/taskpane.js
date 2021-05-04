@@ -37,7 +37,7 @@ function addToLib() {
       var option = document.createElement("option");
       option.value = newSignature.title;
       updatedDropdown.appendChild(option);
-      localStorage.setItem(newSignature.title, newSignature.message) // NEW LF
+      localStorage.setItem("e66d11c4-aceb-11eb-8529-0242ac130003" + newSignature.title, newSignature.message) // NEW LF
 
       document.getElementById("title_input").value = ""
       document.getElementById("message_input").value = ""
@@ -141,21 +141,21 @@ function allStorage() {
       keys = Object.keys(localStorage),
       i = keys.length;
   while ( i-- ) {
-      if (keys[i].includes("77") || keys[i].includes("loglevel:webpack-dev-server") || keys[i].includes("Office API client")) {
-          i--
+      if (keys[i].includes("e66d11c4-aceb-11eb-8529-0242ac130003")) {
+        var signature = {
+          title : keys[i].str.slice(36),
+          message : localStorage.getItem(keys[i]),
+      }
+      values.push(signature);
+      signatureList.push(signature);
+
+      var updatedDropdown = document.getElementById("signatures");
+      var option = document.createElement("option");
+      option.value = signature.title;
+      updatedDropdown.appendChild(option);
       }
       else {
-          var signature = {
-              title : keys[i],
-              message : localStorage.getItem(keys[i]),
-          }
-          values.push(signature);
-          signatureList.push(signature);
-  
-          var updatedDropdown = document.getElementById("signatures");
-          var option = document.createElement("option");
-          option.value = signature.title;
-          updatedDropdown.appendChild(option);
+        i-- 
       }
 }
 syncLibrary();
