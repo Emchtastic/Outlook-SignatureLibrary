@@ -25,6 +25,10 @@ Office.onReady(info => {
   }
 });
 
+function removeUUID(str){
+  str = str.slice(36);
+  return str;
+}
 
 function addToLib() {
   // A function that creates a new object with title and message then adds it to the signature array
@@ -38,7 +42,8 @@ function addToLib() {
       var option = document.createElement("option");
       option.value = newSignature.title;
       updatedDropdown.appendChild(option);
-      localStorage.setItem(newSignature.title, newSignature.message) // NEW LF
+      // localStorage.setItem(newSignature.title, newSignature.message) // NEW LF
+      Office.context.roamingSettings.set("e66d11c4-aceb-11eb-8529-0242ac130003" + newSignature.title, newSignature.message);
 
       document.getElementById("title_input").value = ""
       document.getElementById("message_input").value = ""
@@ -138,28 +143,24 @@ window.onload = function addTab() {
 
 
 function allStorage() {
-  var values = [],
-      keys = Object.keys(localStorage),
-      i = keys.length;
-  while ( i-- ) {
-      if (keys[i].includes("77") || keys[i].includes("loglevel:webpack-dev-server") || keys[i].includes("Office API client")) {
-          i--
+    keys = Office.context.roamingSettings,
+    i = keys.length;
+    while ( i-- ) {
+      if (keys[i].includes("e66d11c4-aceb-11eb-8529-0242ac130003")) {
+        var signature = {
+          title : removeUUID(keys[i]),
+          message : roamingSettings.get(keys[i]),
+        }
+      signatureList.push(signature);
+      var updatedDropdown = document.getElementById("signatures");
+      var option = document.createElement("option")
+      option.value = signature.title;
+      updatedDropdown.appendChild(option);
       }
       else {
-          var signature = {
-              title : keys[i],
-              message : localStorage.getItem(keys[i]),
-          }
-          values.push(signature);
-          signatureList.push(signature);
-  
-          var updatedDropdown = document.getElementById("signatures");
-          var option = document.createElement("option");
-          option.value = signature.title;
-          updatedDropdown.appendChild(option);
+        i-- 
       }
   }
-}
 
 function removeInList() {
   var title = document.getElementById("Sig_title").value
@@ -176,7 +177,7 @@ function removeInList() {
       }
 
   }
-  localStorage.removeItem(title)
+  roamingSettings.remove(title)
   clear();
 }
 
