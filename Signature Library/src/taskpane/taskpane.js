@@ -160,6 +160,7 @@ function allStorage() {
       else {
         i-- 
       }
+    }
   }
 
 function removeInList() {
