@@ -53,6 +53,7 @@ function addToLib() {
       menuList.innerHTML = ""
 
       syncLibrary();
+      save();
 
 }
 
@@ -162,6 +163,17 @@ function allStorage() {
       }
     }
   }
+
+function save() {
+  // Save settings in the mailbox to make it available in future sessions.
+  Office.context.roamingSettings.saveAsync(function(result) {
+    if (result.status !== Office.AsyncResultStatus.Succeeded) {
+      console.error(`Action failed with message ${result.error.message}`);
+    } else {
+      console.log(`Settings saved with status: ${result.status}`);
+    }
+  })
+}
 
 function removeInList() {
   var title = document.getElementById("Sig_title").value
