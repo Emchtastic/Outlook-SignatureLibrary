@@ -37,6 +37,7 @@ function addToLib() {
       menuList.innerHTML = ""
 
       syncLibrary();
+      saveRoaming();
 
 }
 
@@ -125,6 +126,21 @@ window.onload = function addTab() {
 
 }
 
+function saveRoaming() {
+  // Save settings in the mailbox to make it available in future sessions.
+  var roamingSignatures = JSON.stringify(signatureList)
+
+  Office.context.roamingSettings.set("signatures", roamingSignatures)
+
+  Office.context.roamingSettings.saveAsync(function(result) {
+    if (result.status !== Office.AsyncResultStatus.Succeeded) {
+      console.error(`Action failed with message ${result.error.message}`);
+    } else {
+      console.log(`Settings saved with status: ${result.status}`);
+    }
+  })
+}
+
 
 function allStorage() {
   var x = Office.context.roamingSettings.get("signatures")
@@ -146,7 +162,7 @@ function allStorage() {
 
 
         }
-  Office.context.mailbox.item.body.setSelectedDataAsync(JSON.stringify("hi"))
+Office.context.mailbox.item.body.setSelectedDataAsync(JSON.stringify("hi"))
 }
 
 function removeInList() {
@@ -166,6 +182,7 @@ function removeInList() {
   }
   localStorage.removeItem(title)
   clear();
+  saveRoaming();
 }
 
 function applySignature(){
