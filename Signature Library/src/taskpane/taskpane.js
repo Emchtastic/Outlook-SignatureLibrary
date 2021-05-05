@@ -1,15 +1,4 @@
-var signatureList = [{
-  title : "Yoda",
-  message : "“The greatest teacher, failure is.”\n ---Yoda"
-},
-{
-  title : "Vader",
-  message : "“All that I sense,\n is fear and dead men.”\n ---Darth Vader"
-},
-{
-  title : "Han Solo",
-  message : "“It’s not wise to upset a Wookie.”\n ---Han Solo"
-}]
+var signatureList = []
 
 Office.initialize = allStorage; 
 
@@ -48,6 +37,7 @@ function addToLib() {
       menuList.innerHTML = ""
 
       syncLibrary();
+      saveRoaming();
 
 }
 
@@ -136,29 +126,42 @@ window.onload = function addTab() {
 
 }
 
+function saveRoaming() {
+  // Save settings in the mailbox to make it available in future sessions.
+  var roamingSignatures = JSON.stringify(signatureList)
+
+  Office.context.roamingSettings.set("signatures", roamingSignatures)
+
+  Office.context.roamingSettings.saveAsync(function(result) {
+    if (result.status !== Office.AsyncResultStatus.Succeeded) {
+      console.error(`Action failed with message ${result.error.message}`);
+    } else {
+      console.log(`Settings saved with status: ${result.status}`);
+    }
+  })
+}
+
 
 function allStorage() {
-  var values = [],
-      keys = Object.keys(localStorage),
-      i = keys.length;
-  while ( i-- ) {
-      if (keys[i].includes("77") || keys[i].includes("loglevel:webpack-dev-server") || keys[i].includes("Office API client")) {
-          i--
-      }
-      else {
-          var signature = {
-              title : keys[i],
-              message : localStorage.getItem(keys[i]),
+  var x = Office.context.roamingSettings.get("signatures")
+  var roamSignatures = []
+  
+  roamSignatures = JSON.parse(x)
+
+  for (i in roamSignatures) {
+          var newSignature = {
+              title : roamSignatures[i].title,
+              message : roamSignatures[i].message
           }
-          values.push(signature);
-          signatureList.push(signature);
+          signatureList.push(newSignature);
   
           var updatedDropdown = document.getElementById("signatures");
           var option = document.createElement("option");
-          option.value = signature.title;
+          option.value = newSignature.title;
           updatedDropdown.appendChild(option);
-      }
-  }
+
+
+        }
 }
 
 function removeInList() {
@@ -176,8 +179,8 @@ function removeInList() {
       }
 
   }
-  localStorage.removeItem(title)
   clear();
+  saveRoaming();
 }
 
 function applySignature(){
@@ -214,12 +217,13 @@ module.exports = {
     applySignature : applySignature,
     removeInList : removeInList,
     addToLib : addToLib,
-    signatureList: signatureList,
+    signatureList : signatureList,
     allStorage : allStorage,
     clear :  clear,
     syncLibrary : syncLibrary,
     showChoice : showChoice,
-    searchForSig :  searchForSig
+    searchForSig :  searchForSig,
+    saveRoaming : saveRoaming
     
 }
 
