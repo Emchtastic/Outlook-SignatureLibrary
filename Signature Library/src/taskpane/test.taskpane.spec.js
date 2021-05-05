@@ -50,7 +50,7 @@ describe('Test get getRandom', () => {
 };
 describe ('Check the array list of the signature.', () => {
     test ('Should have three objects in the array signature list.',() =>{
-        expect (add.signatureList.length).toBe(3);
+        expect (add.signatureList.length).toBe(1);
     });
 });
 describe('Test applyRandomSignature.', () => {

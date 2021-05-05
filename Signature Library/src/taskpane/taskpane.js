@@ -1,6 +1,6 @@
 var signatureList = [{
   title : "Yoda",
-  message : "Do or do not, there is not try"
+  message : '“The greatest teacher, failure is.”\n ---Yoda'
   
 }]
 
