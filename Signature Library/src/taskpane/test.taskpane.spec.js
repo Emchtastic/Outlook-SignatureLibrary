@@ -1,5 +1,10 @@
 global.Office = () => ({});
 global.Office.onReady = () => ({});
+global.Office.context = () => ({});
+global.Office.context.roamingSettings = () => ({});
+
+global.Office.context.roamingSettings.set = () => ({});
+
 //var applySignature = import("applySignature");
 describe('apply Signature test', () => {
     it('title should not be null',()=>{
@@ -79,8 +84,13 @@ describe("clearAllMocksa and resetModules ", () => {
           <ul id="myMenu"></ul>
           <div id="left"></div>
           `;
+        Office.context.roamingSettings = [];
         document.getElementById("title_input").value = "title";
         document.getElementById("message_input").value = "message";
+        global.Office.context.roamingSettings.set = jest.fn()
+        global.Office.context.roamingSettings.saveAsync = jest.fn()
+        global.Office.context.roamingSettings.get = jest.fn()
+        
       });
   
       it("updates the signatureList with values in fields with id title_input and message_input", () => {
