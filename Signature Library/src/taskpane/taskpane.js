@@ -179,7 +179,6 @@ function removeInList() {
       }
 
   }
-  localStorage.removeItem(title)
   clear();
   saveRoaming();
 }
@@ -218,12 +217,13 @@ module.exports = {
     applySignature : applySignature,
     removeInList : removeInList,
     addToLib : addToLib,
-    signatureList: signatureList,
+    signatureList : signatureList,
     allStorage : allStorage,
     clear :  clear,
     syncLibrary : syncLibrary,
     showChoice : showChoice,
-    searchForSig :  searchForSig
+    searchForSig :  searchForSig,
+    saveRoaming : saveRoaming
     
 }
 
