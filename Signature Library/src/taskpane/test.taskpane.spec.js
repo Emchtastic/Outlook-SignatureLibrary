@@ -3,7 +3,6 @@ global.Office.onReady = () => ({});
 global.Office.context = () => ({});
 global.Office.context.roamingSettings = () => ({});
 
-global.Office.context.roamingSettings.set = () => ({});
 
 //var applySignature = import("applySignature");
 describe('apply Signature test', () => {
