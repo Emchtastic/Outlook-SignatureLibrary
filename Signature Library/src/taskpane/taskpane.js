@@ -162,7 +162,6 @@ function allStorage() {
 
 
         }
-Office.context.mailbox.item.body.setSelectedDataAsync(JSON.stringify("hi"))
 }
 
 function removeInList() {
