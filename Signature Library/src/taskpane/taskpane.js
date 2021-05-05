@@ -1,15 +1,4 @@
-var signatureList = [{
-  title : "Yoda",
-  message : "“The greatest teacher, failure is.”\n ---Yoda"
-},
-{
-  title : "Vader",
-  message : "“All that I sense,\n is fear and dead men.”\n ---Darth Vader"
-},
-{
-  title : "Han Solo",
-  message : "“It’s not wise to upset a Wookie.”\n ---Han Solo"
-}]
+var signatureList = []
 
 Office.initialize = allStorage; 
 
@@ -138,27 +127,26 @@ window.onload = function addTab() {
 
 
 function allStorage() {
-  var values = [],
-      keys = Object.keys(localStorage),
-      i = keys.length;
-  while ( i-- ) {
-      if (keys[i].includes("77") || keys[i].includes("loglevel:webpack-dev-server") || keys[i].includes("Office API client")) {
-          i--
-      }
-      else {
-          var signature = {
-              title : keys[i],
-              message : localStorage.getItem(keys[i]),
+  var x = Office.context.roamingSettings.get("signatures")
+  var roamSignatures = []
+  
+  roamSignatures = JSON.parse(x)
+
+  for (i in roamSignatures) {
+          var newSignature = {
+              title : roamSignatures[i].title,
+              message : roamSignatures[i].message
           }
-          values.push(signature);
-          signatureList.push(signature);
+          signatureList.push(newSignature);
   
           var updatedDropdown = document.getElementById("signatures");
           var option = document.createElement("option");
-          option.value = signature.title;
+          option.value = newSignature.title;
           updatedDropdown.appendChild(option);
-      }
-  }
+
+
+        }
+  Office.context.mailbox.item.body.setSelectedDataAsync(JSON.stringify("hi"))
 }
 
 function removeInList() {
