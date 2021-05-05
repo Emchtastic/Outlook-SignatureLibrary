@@ -153,7 +153,7 @@ function allStorage() {
   roamSignatures = JSON.parse(x)
 
   for (i in roamSignatures) {
-        if (roamSignatures[i].title !== "Yoda") {
+
           var newSignature = {
               title : roamSignatures[i].title,
               message : roamSignatures[i].message
@@ -164,7 +164,7 @@ function allStorage() {
           var option = document.createElement("option");
           option.value = newSignature.title;
           updatedDropdown.appendChild(option);
-        }
+        
 
         }
 }
