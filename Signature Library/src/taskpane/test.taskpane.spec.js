@@ -2,6 +2,7 @@ global.Office = () => ({});
 global.Office.onReady = () => ({});
 global.Office.context = () => ({});
 global.Office.context.roamingSettings = () => ({});
+global.JSON.parse = () => ({});
 
 
 //var applySignature = import("applySignature");
@@ -23,6 +24,7 @@ describe('apply Signature test', () => {
         });
         it ('message should be null',()=>{});
         });
+const taskpane = require('./taskpane');
 var add = require ('./taskpane');
 describe('Apply Random Signature from the list', () => {
     test('Should be signature message apply random mailbox', () => {
@@ -132,6 +134,7 @@ describe("clearAllMocksa and resetModules ", () => {
     beforeAll(() => {
       document.body.innerHTML = `<div id="signatures"></div>`;
       localStorage.setItem("test", "test");
+      const x = taskpane.s
     });
     beforeEach(() => localStorage.clear());
     it("does not add items to local storage when the key is 77 or Office API client", () => {
