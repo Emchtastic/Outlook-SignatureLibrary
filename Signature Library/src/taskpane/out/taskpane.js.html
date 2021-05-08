@@ -1,4 +1,32 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: taskpane.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: taskpane.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * @property {array} signatureList      - The list of signature objects
  * @property {string} signatureList[].title   - The given title of a specific signature
  * @property {string} signatureList[].message - The given text message of a specific signature
@@ -28,7 +56,7 @@ Office.onReady(info => {
  * This function creates a new object called newSignature that contains a title and message. 
  * The title and message of the new object are set to the current values within the title_input and message_input boxes.
  * After the newSignature elements are set, the method then adds it to the signature array and set the user input boxes to empty ("").
- * @author Alex Emch <aemch@msudenver.edu>
+ * @author Alex Emch &lt;aemch@msudenver.edu>
  * @version 2.0.0
  * @todo Implement adding signatures to signature library window
  * @todo Implement adding signatures into signatureList from local storage using desktop app
@@ -62,7 +90,7 @@ function addToLib() {
 
 /**
  * This function clears the title and message box of the signature library window.
- * @author Marie Diaoune <mdiaoune@msudenver.edu>
+ * @author Marie Diaoune &lt;mdiaoune@msudenver.edu>
  * @version 1.0.0
  */
 function clear() {
@@ -73,7 +101,7 @@ function clear() {
 
 /**
  * This function displays specific siganture titles within the signatureList array via the current text input in the 'mySearch' searchbar.
- * @author Marie Diaoune <mdiaoune@msudenver.edu>
+ * @author Marie Diaoune &lt;mdiaoune@msudenver.edu>
  * @version 1.0.0
  */
 function searchForSig() {
@@ -82,7 +110,7 @@ function searchForSig() {
   filter = input.value.toUpperCase();
   ul = document.getElementById("myMenu");
   li = ul.getElementsByTagName("li");
-  for (i = 0; i < li.length; i++) {
+  for (i = 0; i &lt; li.length; i++) {
     a = li[i].getElementsByTagName("a")[0];
     if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
       li[i].style.display = "";
@@ -94,7 +122,7 @@ function searchForSig() {
 
 /**
  * This function populates the title and message box of the signature library window with the selected title's values by parsing through the signatureList array until the choise matches the title.
- * @author Marie Diaoune <mdiaoune@msudenver.edu>
+ * @author Marie Diaoune &lt;mdiaoune@msudenver.edu>
  * @version 1.0.0
  */
 function showChoice(){
@@ -103,7 +131,7 @@ function showChoice(){
     document.getElementById("Sig_title").value = e.target.innerHTML
 })
 
-for (i = 0; i < signatureList.length; i++){
+for (i = 0; i &lt; signatureList.length; i++){
   if (signatureList[i].title == document.getElementById("Sig_title").value) {
     document.getElementById("Sig_message").value = signatureList[i].message
   }
@@ -112,8 +140,8 @@ for (i = 0; i < signatureList.length; i++){
 }
 
 /**
- * This function appends all of the titles of the signatureList array to the 'myMenu' dropdown list within the signature library window.
- * @author Marie Diaoune <mdiaoune@msudenver.edu>
+ * This function appends all of this titles of the signatureList array to the 'myMenu' dropdown list within the signature library window.
+ * @author Marie Diaoune &lt;mdiaoune@msudenver.edu>
  * @version 1.0.0
  */
 function syncLibrary(){
@@ -121,7 +149,7 @@ function syncLibrary(){
 var menuItems = [
 ];
 
-for (i = 0; i < signatureList.length; i++){
+for (i = 0; i &lt; signatureList.length; i++){
       var signatureTitle = {
         href: '#',
         text : signatureList[i].title
@@ -137,7 +165,7 @@ for (i = 0; i < signatureList.length; i++){
   menuElem.appendChild(menuList);
 
   // Cycle over each menu item
-  for (var i = 0; i < menuItems.length; i++) {
+  for (var i = 0; i &lt; menuItems.length; i++) {
       // Create a fresh list item, and anchor
       menuItem = document.createElement("li");
       menuLink = document.createElement("a");
@@ -161,9 +189,10 @@ for (i = 0; i < signatureList.length; i++){
 
 }
 /**
- * This function saves the current signatureList array into a string then uploads that string as the variable "roamingSignatures" to roamingSettings under the 'signatures' item.
+ * This function saves the turns the current signatureList array into a string then uploads that string as the variable "roamingSignatures"
+ * to roamingSettings under the 'signatures' item.
  * .saveAsync saves the current roamingSettings under the current Outlook account.
- * @author Alex Emch <aemch@msudenver.edu>
+ * @author Alex Emch &lt;aemch@msudenver.edu>
  * @version 1.0.0
  */
 function saveRoaming() {
@@ -185,8 +214,8 @@ function saveRoaming() {
  * This function is designed to populate the signatureList array and signatures dropdown list with any saved signature within local storage.
  * The "roamSignatures" variable is created that holds the items from roaming storage. 
  * The roamSignatures item is then iterated to add each signature as a new signature object into the signatureList array.
- * @author Logan Fry <lfry5@msudenver.edu> 
- * @author Alex Emch <aemch@msudenver.edu>
+ * @author Logan Fry &lt;lfry5@msudenver.edu> 
+ * @author Alex Emch &lt;aemch@msudenver.edu>
  * @version 2.0.0
  * @yields {object} The signature objects that are located in local storage
  */
@@ -218,7 +247,7 @@ function allStorage() {
  * The method then iterates through the array and removes the signature object via comparing titles.
  * The method also removes the title from the dropdown list.
  * The method also syncs the signatures item in roaming storage to the current signatureList array
- * @author Alex Emch <aemch@msudenver.edu>
+ * @author Alex Emch &lt;aemch@msudenver.edu>
  * @version 3.0.0
  */
 function removeInList() {
@@ -228,7 +257,7 @@ function removeInList() {
 
   var i;
   
-  for (i = 0; i < signatureList.length; i++){
+  for (i = 0; i &lt; signatureList.length; i++){
       if (signatureList[i].title == title) {
           signatureList.splice(i, 1)
           dropDown.children[i].remove()
@@ -244,7 +273,7 @@ function removeInList() {
  * This method gets the value signature title that the user chooses from the dropdown list (via querySelector) and places it in the var title.
  * The method then iterates through the signatureList array and gets the chosen signature message via comparing var title with the signature object titles.
  * The signature message is then set in the email body as a string.
- * @author Alex Emch <aemch@msudenver.edu>
+ * @author Alex Emch &lt;aemch@msudenver.edu>
  * @version 2.0.0
  */
 function applySignature(){
@@ -252,7 +281,7 @@ function applySignature(){
   var emailMessage = null
 
   var i;
-  for (i = 0; i < signatureList.length; i++){
+  for (i = 0; i &lt; signatureList.length; i++){
       if (signatureList[i].title == title) {
           emailMessage = signatureList[i].message
       }
@@ -263,7 +292,7 @@ function applySignature(){
 
 /**
  * This method creates a random index number based on the current size of the array signatureList
- * @author Logan Fry <lfry5@msudenver.edu>
+ * @author Logan Fry &lt;lfry5@msudenver.edu>
  * @version 1.0.0
  */
 function getRandom() {
@@ -274,7 +303,7 @@ function getRandom() {
  * This method gets a random signature message from the array signatureList then places that random message in the email body.
  * The method functions utilizing the getRandom() method to get a random index of signatureList then grabs the signature message from that index.
  * The method then places that chosen signature message into the email body in the exact way that applySignature() does.
- * @author Logan Fry <lfry5@msudenver.edu>
+ * @author Logan Fry &lt;lfry5@msudenver.edu>
  * @version 1.0.0
  */
 function applyRandomSignature(){
@@ -301,4 +330,26 @@ module.exports = {
     
 }
 
-// reference code: https://www.kirupa.com/html5/storing_and_retrieving_an_array_from_local_storage.htm, https://stackoverflow.com/questions/17745292/how-to-retrieve-all-localstorage-items-without-knowing-the-keys-in-advance
+// reference code: https://www.kirupa.com/html5/storing_and_retrieving_an_array_from_local_storage.htm, https://stackoverflow.com/questions/17745292/how-to-retrieve-all-localstorage-items-without-knowing-the-keys-in-advance</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addToLib">addToLib</a></li><li><a href="global.html#allStorage">allStorage</a></li><li><a href="global.html#applyRandomSignature">applyRandomSignature</a></li><li><a href="global.html#applySignature">applySignature</a></li><li><a href="global.html#clear">clear</a></li><li><a href="global.html#getRandom">getRandom</a></li><li><a href="global.html#removeInList">removeInList</a></li><li><a href="global.html#saveRoaming">saveRoaming</a></li><li><a href="global.html#searchForSig">searchForSig</a></li><li><a href="global.html#showChoice">showChoice</a></li><li><a href="global.html#signatureList">signatureList</a></li><li><a href="global.html#syncLibrary">syncLibrary</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Thu May 06 2021 09:54:32 GMT-0600 (Mountain Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
