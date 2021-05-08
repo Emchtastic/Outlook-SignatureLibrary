@@ -122,20 +122,12 @@ describe("clearAllMocksa and resetModules ", () => {
   describe("Test allStorage", () => {
     beforeAll(() => {
       document.body.innerHTML = `<div id="signatures"></div>`;
-      localStorage.setItem("test", "test");
+      roamingSettings.get("test", "test");
     });
-    beforeEach(() => localStorage.clear());
-    it("does not add items to local storage when the key is 77 or Office API client", () => {
-      localStorage.setItem("77", "77");
-      localStorage.setItem("Office API client", "api client");
-      const taskpane = require("./taskpane");
-      const signatureList = taskpane.signatureList;
-      taskpane.allStorage();
-      expect(signatureList.some((signature) => signature.title === "77")).toEqual(false);
-    });
-    it("adds items to the local storage", () => {
+    beforeEach(() => roamSignatures.clear());
+    it("adds items to the roaming storage", () => {
       const initialOptionsCount = document.getElementById("signatures").childElementCount;
-      localStorage.setItem("test", "test");
+      roamSignatures.set("test", "test");
       const taskpane = require("./taskpane");
       const signatureList = taskpane.signatureList;
       taskpane.allStorage();
