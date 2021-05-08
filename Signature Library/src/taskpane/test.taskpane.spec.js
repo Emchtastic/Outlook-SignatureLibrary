@@ -32,6 +32,25 @@ describe('Apply Random Signature from the list', () => {
     });
 });
 
+describe('input test', () => {
+  it('input should not be null',()=>{
+  const input = window.document.getElementById('mySearch');
+  expect(input).toBeDefined();
+  });
+});
+describe('ui test', () => {
+  it('ui should not be null',()=>{
+  const ui = window.document.getElementById('myMenu');
+  expect(ui).toBeDefined();
+  });
+});
+describe('Test filter', () => {
+      test('should test the UpperCase', () => {
+  const filter = toString().toUpperCase(test);
+  expect(test).toBe(Test);
+  })
+});
+
 describe('Test get getRandom', () => {
     test('Should pick a random result', () => {
         const actual = add.getRandom();
