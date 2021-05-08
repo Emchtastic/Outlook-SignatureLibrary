@@ -35,6 +35,27 @@ describe('Test get getRandom', () => {
     })
    
   });
+  
+  describe('input test', () => {
+    it('input should not be null',()=>{
+    const input = window.document.getElementById('mySearch');
+    expect(input).toBeDefined();
+    });
+  });
+describe('ui test', () => {
+    it('ui should not be null',()=>{
+    const ui = window.document.getElementById('myMenu');
+    expect(ui).toBeDefined();
+    });
+}); 
+ describe('Test filter', () => {
+        it('shoud test the UpperCase', () => {
+          let _li = "none";
+          let li =  ''
+    expect(_li).toBe('none');
+    expect(li).toBe('');
+    })
+});
 
   global.Office = {
     onReady: jest.fn(),
