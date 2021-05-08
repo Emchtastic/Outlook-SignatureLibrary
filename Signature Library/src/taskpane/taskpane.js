@@ -112,7 +112,7 @@ for (i = 0; i < signatureList.length; i++){
 }
 
 /**
- * This function appends all of this titles of the signatureList array to the 'myMenu' dropdown list within the signature library window.
+ * This function appends all of the titles of the signatureList array to the 'myMenu' dropdown list within the signature library window.
  * @author Marie Diaoune <mdiaoune@msudenver.edu>
  * @version 1.0.0
  */
@@ -161,8 +161,7 @@ for (i = 0; i < signatureList.length; i++){
 
 }
 /**
- * This function saves the turns the current signatureList array into a string then uploads that string as the variable "roamingSignatures"
- * to roamingSettings under the 'signatures' item.
+ * This function saves the current signatureList array into a string then uploads that string as the variable "roamingSignatures" to roamingSettings under the 'signatures' item.
  * .saveAsync saves the current roamingSettings under the current Outlook account.
  * @author Alex Emch <aemch@msudenver.edu>
  * @version 1.0.0
