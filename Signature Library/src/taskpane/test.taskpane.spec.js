@@ -11,6 +11,9 @@ global.JSON.parse = () => ({});
  */
 
 //var applySignature = import("applySignature");
+/**
+ * @author Sarmad Tello <stello1@msudenver.edu>
+ */
 describe('apply Signature test', () => {
     it('title should not be null',()=>{
     const title = window.document.getElementById('signature');
@@ -31,6 +34,9 @@ describe('apply Signature test', () => {
         });
 const taskpane = require('./taskpane');
 var add = require ('./taskpane');
+/**
+ * @author Mohamed Elsheikh <melshei1@msudenver.edu>
+ */
 describe('Apply Random Signature from the list', () => {
     test('Should be signature message apply random mailbox', () => {
         const result = add.signatureList[add.getRandom()-1]
@@ -39,6 +45,9 @@ describe('Apply Random Signature from the list', () => {
     });
 });
 
+/**
+ * @author Sarmad Tello <stello1@msudenver.edu>
+ */
 describe('Test get getRandom', () => {
     test('Should pick a random result', () => {
         const actual = add.getRandom();
@@ -59,11 +68,17 @@ describe('Test get getRandom', () => {
         },
     },
 };
+/**
+ * @author Mohamed Elsheikh <melshei1@msudenver.edu>
+ */
 describe ('Check the array list of the signature.', () => {
     test ('Should have three objects in the array signature list.',() =>{
         expect (add.signatureList.length).toBe(1);
     });
 });
+/**
+ * @author Mohamed Elsheikh <melshei1@msudenver.edu>
+ */
 describe('Test applyRandomSignature.', () => {
     it('Should call a random signature to sets the message.', () => {
         const taskpane = require('./taskpane');
@@ -72,11 +87,17 @@ describe('Test applyRandomSignature.', () => {
     });
 });
 
+/**
+ * @author Mohamed Elsheikh <melshei1@msudenver.edu>
+ */
 describe("clearAllMocksa and resetModules ", () => {
     afterEach(() => {
       jest.clearAllMocks();
       jest.resetModules();
     });
+    /**
+     * @author Mohamed Elsheikh <melshei1@msudenver.edu>
+    */
     describe(" Test addToLib", () => {
       beforeAll(() => {
         document.body.innerHTML = `
@@ -114,6 +135,9 @@ describe("clearAllMocksa and resetModules ", () => {
       });
     });
 
+  /**
+   * @author Mohamed Elsheikh <melshei1@msudenver.edu>
+   */
   describe("Test clear ", () => {
     beforeAll(() => {
       document.body.innerHTML = `
@@ -134,7 +158,11 @@ describe("clearAllMocksa and resetModules ", () => {
       expect(document.getElementById("Sig_title").value).toEqual("");
     });
   });
-
+  
+  /**
+   * @author Mohamed Elsheikh <melshei1@msudenver.edu>
+   * @author Sarmad Tello <stello1@msudenver.edu>
+   */
   describe("Test allStorage", () => {
     beforeAll(() => {
       document.body.innerHTML = `<div id="signatures"></div>`;
@@ -160,6 +188,9 @@ describe("clearAllMocksa and resetModules ", () => {
     });
   });
   
+  /**
+   * @author Mohamed Elsheikh <melshei1@msudenver.edu>
+   */
   describe("Test removeInList", () => {
     beforeAll(() => {
       // Used to mock the required html which is accessed by the function removeInList
@@ -186,6 +217,9 @@ describe("clearAllMocksa and resetModules ", () => {
     });
   });
   
+  /**
+   * @author Mohamed Elsheikh <melshei1@msudenver.edu>
+   */
   describe("syncLibrary", () => {
     beforeAll(() => {
       document.body.innerHTML = `
@@ -200,7 +234,10 @@ describe("clearAllMocksa and resetModules ", () => {
       expect(document.getElementById("myMenu").querySelector("li").querySelector("a").innerHTML).toEqual("Yoda");
     });
   });
-
+  
+  /**
+   * @author Mohamed Elsheikh <melshei1@msudenver.edu>
+   */
   describe("Test showChoice", () => {
     beforeAll(() => {
       document.body.innerHTML = `
@@ -225,6 +262,9 @@ describe("clearAllMocksa and resetModules ", () => {
       expect(document.getElementById("Sig_message").value).toEqual('“The greatest teacher, failure is.”\n ---Yoda');
     });
   });
+  /**
+   * @author Mohamed Elsheikh <melshei1@msudenver.edu>
+   */
   describe("Test getRandom", () => {
     it("should select a random number between 0 and length of signatureList", () => {
       const result = add.signatureList[add.getRandom() - 1];
