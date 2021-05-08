@@ -134,7 +134,6 @@ describe("clearAllMocksa and resetModules ", () => {
     beforeAll(() => {
       document.body.innerHTML = `<div id="signatures"></div>`;
       localStorage.setItem("test", "test");
-      const x = taskpane.s
     });
     beforeEach(() => localStorage.clear());
     it("does not add items to local storage when the key is 77 or Office API client", () => {
