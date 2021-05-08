@@ -188,7 +188,7 @@ function saveRoaming() {
  * @author Logan Fry <lfry5@msudenver.edu> 
  * @author Alex Emch <aemch@msudenver.edu>
  * @version 2.0.0
- * @yields {object} The signature objects that are located in local storage
+ * @yields {object} The signature objects that are located in roaming storage
  */
 function allStorage() {
   var x = Office.context.roamingSettings.get("signatures")

@@ -4,6 +4,11 @@ global.Office.context = () => ({});
 global.Office.context.roamingSettings = () => ({});
 global.JSON.parse = () => ({});
 
+/**
+ * Primary authors for Jest testing suite
+ * @author Mohamed Elsheikh <melshei1@msudenver.edu>
+ * @author Sarmad Tello <stello1@msudenver.edu>
+ */
 
 //var applySignature = import("applySignature");
 describe('apply Signature test', () => {
