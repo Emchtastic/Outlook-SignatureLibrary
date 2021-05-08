@@ -225,4 +225,11 @@ describe("clearAllMocksa and resetModules ", () => {
       expect(document.getElementById("Sig_message").value).toEqual('“The greatest teacher, failure is.”\n ---Yoda');
     });
   });
+  describe("Test getRandom", () => {
+    it("should select a random number between 0 and length of signatureList", () => {
+      const result = add.signatureList[add.getRandom() - 1];
+      expect(result).not.toEqual(null);
+      expect(add.getRandom()).toBeLessThanOrEqual(3);
+    });
+  });
 });
