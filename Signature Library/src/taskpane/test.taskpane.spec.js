@@ -179,7 +179,7 @@ describe("clearAllMocksa and resetModules ", () => {
       document.body.innerHTML = `<div id="signatures"></div>`;
       Office.context.roamingSettings.set("signatures", stringTest);
     });
-    it("adds items to the roaming storage", () => {
+    it("appends signature objects to signatureList and dropdown from roaming storage", () => {
       var x = Office.context.roamingSettings.get("signatures")
       console.log(x)
 
