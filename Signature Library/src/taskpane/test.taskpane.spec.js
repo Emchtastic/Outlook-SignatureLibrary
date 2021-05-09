@@ -2,7 +2,7 @@ global.Office = () => ({});
 global.Office.onReady = () => ({});
 global.Office.context = () => ({});
 global.Office.context.roamingSettings = () => ({});
-global.JSON.parse = () => ({});
+
 
 /**
  * Primary authors for Jest testing suite
@@ -163,23 +163,27 @@ describe("clearAllMocksa and resetModules ", () => {
    * @author Mohamed Elsheikh <melshei1@msudenver.edu>
    * @author Sarmad Tello <stello1@msudenver.edu>
    */
-  describe("Test allStorage", () => {
+   describe("Test allStorage", () => {
     beforeAll(() => {
+      const test = [{
+        title : "test",
+        message : "test"
+      }]
+      JSON.parse = jest.fn().mockImplementationOnce(() => {
+        return [{
+          title : "test",
+          message : "test"
+        }]
+      });
+      const stringTest = JSON.stringify(test)
       document.body.innerHTML = `<div id="signatures"></div>`;
-      localStorage.setItem("test", "test");
+      Office.context.roamingSettings.set("signatures", stringTest);
     });
-    beforeEach(() => localStorage.clear());
-    it("does not add items to local storage when the key is 77 or Office API client", () => {
-      localStorage.setItem("77", "77");
-      localStorage.setItem("Office API client", "api client");
-      const taskpane = require("./taskpane");
-      const signatureList = taskpane.signatureList;
-      taskpane.allStorage();
-      expect(signatureList.some((signature) => signature.title === "77")).toEqual(false);
-    });
-    it("adds items to the local storage", () => {
+    it("adds items to the roaming storage", () => {
+      var x = Office.context.roamingSettings.get("signatures")
+      console.log(x)
+
       const initialOptionsCount = document.getElementById("signatures").childElementCount;
-      localStorage.setItem("test", "test");
       const taskpane = require("./taskpane");
       const signatureList = taskpane.signatureList;
       taskpane.allStorage();
