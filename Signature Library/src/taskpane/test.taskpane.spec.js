@@ -2,7 +2,7 @@ global.Office = () => ({});
 global.Office.onReady = () => ({});
 global.Office.context = () => ({});
 global.Office.context.roamingSettings = () => ({});
-global.JSON.parse = () => ({});
+
 
 /**
  * Primary authors for Jest testing suite
@@ -169,14 +169,19 @@ describe("clearAllMocksa and resetModules ", () => {
         title : "test",
         message : "test"
       }]
-
+      JSON.parse = jest.fn().mockImplementationOnce(() => {
+        return [{
+          title : "test",
+          message : "test"
+        }]
+      });
       const stringTest = JSON.stringify(test)
       document.body.innerHTML = `<div id="signatures"></div>`;
       Office.context.roamingSettings.set("signatures", stringTest);
     });
     it("adds items to the roaming storage", () => {
-
-      
+      var x = Office.context.roamingSettings.get("signatures")
+      console.log(x)
 
       const initialOptionsCount = document.getElementById("signatures").childElementCount;
       const taskpane = require("./taskpane");
