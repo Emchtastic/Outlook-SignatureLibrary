@@ -32,6 +32,7 @@ describe('apply Signature test', () => {
         });
         it ('message should be null',()=>{});
         });
+const { searchForSig } = require('./taskpane');
 const taskpane = require('./taskpane');
 var add = require ('./taskpane');
 /**
@@ -56,28 +57,8 @@ describe('Test get getRandom', () => {
    
   });
   
-  describe('input test', () => {
-    it('input should not be null',()=>{
-    const input = window.document.getElementById('mySearch');
-    expect(input).toBeDefined();
-    });
-  });
-describe('ui test', () => {
-    it('ui should not be null',()=>{
-    const ui = window.document.getElementById('myMenu');
-    expect(ui).toBeDefined();
-    });
-}); 
- describe('Test filter', () => {
-        it('shoud test the UpperCase', () => {
-          let _li = "none";
-          let li =  ''
-    expect(_li).toBe('none');
-    expect(li).toBe('');
-    })
-});
 
-  global.Office = {
+global.Office = {
     onReady: jest.fn(),
     context: {
         mailbox: {
@@ -119,6 +100,50 @@ describe("clearAllMocksa and resetModules ", () => {
     /**
      * @author Mohamed Elsheikh <melshei1@msudenver.edu>
     */
+     describe('Test searchForSig', () => {
+      beforeAll(() => {
+        window.document.body.innerHTML = `
+        <input type="text" id="mySearch" placeholder="Search" title="Type in a signature name">
+          <ul id="myMenu">
+              <li><a href="#">Yoda</a></li>
+              <li><a href="#">Vader</a></li>
+              <li><a href="#">Solo</a></li>
+          </ul>`;
+      });
+      it('input should not be null',()=>{
+        const input = window.document.getElementById('mySearch');
+        expect(input).toBeDefined();
+        });
+    
+      it('ui should not be null',()=>{
+        const ui = window.document.getElementById('myMenu');
+        expect(ui).toBeDefined();
+        });
+  
+      test('shoud test the UpperCase', () => {
+        let _li = "none";
+        let li =  ''
+        expect(_li).toBe('none');
+        expect(li).toBe('');
+      })
+      test('Should set Vader and Solo as empty displays ("")', () => {
+        var ul, li, a, i;
+        var bool = false
+        window.document.getElementById('mySearch').innerHTML = "Y"
+        const taskpane = require("./taskpane");
+        taskpane.searchForSig();
+        ul = document.getElementById("myMenu");
+        li = ul.getElementsByTagName("li");
+        for (i = 0; i < li.length; i++) {
+          a = li[i].getElementsByTagName("a")[0];
+          if (li[i].style.display = "none") {
+            var bool = true;
+          }
+        }
+        expect(bool).toEqual(true)
+      })
+
+  });
     describe(" Test addToLib", () => {
       beforeAll(() => {
         document.body.innerHTML = `
@@ -162,13 +187,18 @@ describe("clearAllMocksa and resetModules ", () => {
   describe("Test clear ", () => {
     beforeAll(() => {
       document.body.innerHTML = `
-        <textarea placeholder="Signature title" id="Sig_title", cols="24"></textarea>
+        <textarea placeholder="Signature title" id="Sig_title", cols="24">Yoda</textarea>
         <textarea placeholder="Signature message" id="Sig_message" cols="24" rows="5"></textarea>
         <datalist id="signatures">
-            <option value="Yoda"> 
-            <option value="Vader"> 
-            <option value="Han Solo"></option>
-        </datalist>`;
+          <option value="Yoda" />
+          <option value="Vader" />
+          <option value="Han Solo" />
+        </datalist>
+        <ul id="myMenu">
+            <li><a href="#">Yoda</a></li>
+            <li><a href="#">Vader</a></li>
+            <li><a href="#">Han Solo</a></li>
+        </ul>`;
       document.getElementById("Sig_title").value = "";
       document.getElementById("Sig_message").value = "";
     });
