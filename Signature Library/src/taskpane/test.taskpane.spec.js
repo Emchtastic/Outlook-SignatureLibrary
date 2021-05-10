@@ -98,7 +98,8 @@ describe("clearAllMocksa and resetModules ", () => {
       jest.resetModules();
     });
     /**
-     * @author Mohamed Elsheikh <melshei1@msudenver.edu>
+     * @author Sarmad Tello <stello1@msudenver.edu>
+     * @author Alex Emch <aemch@msudenver.edu>
     */
      describe('Test searchForSig', () => {
       beforeAll(() => {
@@ -144,6 +145,9 @@ describe("clearAllMocksa and resetModules ", () => {
       })
 
   });
+    /**
+     * @author Mohamed Elsheikh <melshei1@msudenver.edu>
+    */
     describe(" Test addToLib", () => {
       beforeAll(() => {
         document.body.innerHTML = `
