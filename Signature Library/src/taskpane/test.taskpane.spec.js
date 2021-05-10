@@ -136,7 +136,6 @@ describe("clearAllMocksa and resetModules ", () => {
         ul = document.getElementById("myMenu");
         li = ul.getElementsByTagName("li");
         for (i = 0; i < li.length; i++) {
-          a = li[i].getElementsByTagName("a")[0];
           if (li[i].style.display = "none") {
             var bool = true;
           }
