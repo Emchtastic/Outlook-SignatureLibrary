@@ -1,10 +1,10 @@
-# README #
+# README # Signature Library Outlook Extension
 
 This README would normally document whatever steps are necessary to get your application up and running.
 
 ### What is this repository for? ###
 
-* Quick summary
+* Quick summary: This is a repo to develop a signature library Microsoft Outlook app that will create and save email signatures to a local library
 * Version
 * [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
 
@@ -14,7 +14,9 @@ This README would normally document whatever steps are necessary to get your app
 * Configuration
 * Dependencies
 * Database configuration
-* How to run tests
+* How to run tests:
+	-jest test software is utilized to run unit-tests. cmd "jest" within the extension folder "Signature Library" will run the tests.
+	example command: C:\Users\alex8\OneDrive\Desktop\Scrum Squad\main\Signature Library>jest
 * Deployment instructions
 
 ### Contribution guidelines ###
