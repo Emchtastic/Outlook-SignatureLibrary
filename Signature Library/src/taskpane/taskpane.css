@@ -99,11 +99,11 @@ input[type=text], input[type=text] {
 
 /* Set a style for all buttons */
 button {
-  background-color: #4CAF50;
+  background-color: #3a833d;
+  border-color: #0b0f11;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
-  border: none;
   cursor: pointer;
   width: auto;
 }
@@ -205,11 +205,11 @@ span.psw {
 
 /*The buttons that are type buttons*/
 .button {
-  background-color: #4CAF50;
+  background-color: #3a833d;
   color: white;
-  padding: 14px 20px;
+  padding: 5px 5px;
   margin: 8px 0;
-  border: none;
+  border-color: #0b0f11;
   cursor: pointer;
   width: auto;
 }
