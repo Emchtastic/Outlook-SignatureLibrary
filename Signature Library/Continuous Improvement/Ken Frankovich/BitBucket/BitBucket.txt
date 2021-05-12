@@ -1,1 +1,5 @@
-Stuff
+Creating a Git Repo in BB:
+https://support.atlassian.com/bitbucket-cloud/docs/create-a-git-repository/
+__I was the one who set up the Git Repo with my own account, I believe this was the root of 
+our Syncing issues between BB and JIRA.
+
