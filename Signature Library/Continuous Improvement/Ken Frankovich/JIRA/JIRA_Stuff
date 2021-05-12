@@ -1,0 +1,22 @@
+Creating a JIRA Project:
+https://support.atlassian.com/jira-core-cloud/docs/create-a-project/
+__While I didn't actually create the JIRA Project for the Scrum Squad, however 
+I did look up the process for future reference. This link also details some of
+the basic customization for the project.
+
+Adding Users:
+https://support.atlassian.com/jira-core-cloud/docs/add-new-users/
+__I was tasked with adding all the users when we first started using JIRA, not
+complicated other than getting everyone's information.
+
+Permissions:
+https://support.atlassian.com/jira-core-cloud/docs/manage-permissions/
+__We made all the Users Admins in this case so that everyone could take on any
+role needed so we didn't do much with this.
+
+Syncing JIRA to BB:
+https://support.atlassian.com/bitbucket-cloud/docs/connect-bitbucket-cloud-to-jira-software-cloud/
+__We were never able to get this working, I suspect is has something to do with 
+the fact we were using two different accounts (one being mine the other being 
+Professor Beaty's, And I don't think the permissions to Sync were ever given to
+the team)
