@@ -4,8 +4,8 @@
  * @property {string} signatureList[].message - The given text message of a specific signature
  */
 var signatureList = [{
-  title : "Yoda",
-  message : '“The greatest teacher, failure is.”\n ---Yoda'
+  title : "Homer",
+  message : "“Where's the 'ANY' key?”\n ---Homer J Simpson"
   
 }]
 
@@ -301,4 +301,3 @@ module.exports = {
     
 }
 
-// reference code: https://www.kirupa.com/html5/storing_and_retrieving_an_array_from_local_storage.htm, https://stackoverflow.com/questions/17745292/how-to-retrieve-all-localstorage-items-without-knowing-the-keys-in-advance
