@@ -18,4 +18,5 @@ Syncing JIRA to BB:
 https://support.atlassian.com/bitbucket-cloud/docs/connect-bitbucket-cloud-to-jira-software-cloud/
 __We were never able to get this working, I suspect is has something to do with 
 the fact we were using two different accounts (one being mine the other being 
-Professor Beaty's)
+Professor Beaty's, And I don't think the permissions to Sync were ever given to
+the team)
