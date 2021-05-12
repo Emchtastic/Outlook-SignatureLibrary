@@ -197,7 +197,7 @@ function allStorage() {
   roamSignatures = JSON.parse(x)
 
   for (i in roamSignatures) {
-        if (roamSignatures[i].title != "Yoda"){
+        if (roamSignatures[i].title != "Homer"){
           var newSignature = {
               title : roamSignatures[i].title,
               message : roamSignatures[i].message

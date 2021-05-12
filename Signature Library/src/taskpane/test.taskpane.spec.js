@@ -253,15 +253,15 @@ describe("clearAllMocksa and resetModules ", () => {
     beforeAll(() => {
       // Used to mock the required html which is accessed by the function removeInList
       document.body.innerHTML = `
-        <textarea placeholder="Signature title" id="Sig_title", cols="24">Yoda</textarea>
+        <textarea placeholder="Signature title" id="Sig_title", cols="24">Homer</textarea>
         <textarea placeholder="Signature message" id="Sig_message" cols="24" rows="5"></textarea>
         <datalist id="signatures">
-          <option value="Yoda" />
+          <option value="Homer" />
           <option value="Vader" />
           <option value="Han Solo" />
         </datalist>
         <ul id="myMenu">
-            <li><a href="#">Yoda</a></li>
+            <li><a href="#">Homer</a></li>
             <li><a href="#">Vader</a></li>
             <li><a href="#">Han Solo</a></li>
         </ul>
@@ -289,7 +289,7 @@ describe("clearAllMocksa and resetModules ", () => {
       const taskpane = require("./taskpane");
       taskpane.syncLibrary();
       expect(document.getElementById("myMenu").childElementCount).toEqual(taskpane.signatureList.length);
-      expect(document.getElementById("myMenu").querySelector("li").querySelector("a").innerHTML).toEqual("Yoda");
+      expect(document.getElementById("myMenu").querySelector("li").querySelector("a").innerHTML).toEqual("Homer");
     });
   });
   
@@ -302,7 +302,7 @@ describe("clearAllMocksa and resetModules ", () => {
       <textarea placeholder="Signature title" id="Sig_title", cols="24"></textarea>
       <textarea placeholder="Signature message" id="Sig_message" cols="24" rows="5"></textarea>
       <ul id="myMenu">
-        <li><a>Yoda</a></li>
+        <li><a>Homer</a></li>
         <li><a>Vader</a></li>
       </ul>
       `;
@@ -311,13 +311,13 @@ describe("clearAllMocksa and resetModules ", () => {
       const taskpane = require("./taskpane");
       taskpane.showChoice();
       document.getElementById("myMenu").querySelector("li").querySelector("a").click();
-      expect(document.getElementById("Sig_title").value).toEqual("Yoda");
+      expect(document.getElementById("Sig_title").value).toEqual("Homer");
     });
     it("shows the right title corresponding to Sig_title value", () => {
       const taskpane = require("./taskpane");
-      document.getElementById("Sig_title").value = "Yoda";
+      document.getElementById("Sig_title").value = "Homer";
       taskpane.showChoice();
-      expect(document.getElementById("Sig_message").value).toEqual('“The greatest teacher, failure is.”\n ---Yoda');
+      expect(document.getElementById("Sig_message").value).toEqual("“Where's the 'ANY' key?”\n ---Homer J Simpson");
     });
   });
   /**
