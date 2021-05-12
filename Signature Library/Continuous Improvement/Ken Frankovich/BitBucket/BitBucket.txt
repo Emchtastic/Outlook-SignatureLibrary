@@ -3,3 +3,13 @@ https://support.atlassian.com/bitbucket-cloud/docs/create-a-git-repository/
 __I was the one who set up the Git Repo with my own account, I believe this was the root of 
 our Syncing issues between BB and JIRA.
 
+Setting Permissions for users:
+https://confluence.atlassian.com/bitbucketserver050/using-project-permissions-913474660.html#:~:text=To%20modify%20permissions%20for%20a,down%20list%2C%20and%20click%20Add.
+
+Setting Merge rules:
+https://support.atlassian.com/bitbucket-cloud/docs/pull-request-and-merge-settings/
+__I set up these when I created the repo, Making it so that everyone would need an approval 
+to merge to dev and 2 approvals to merge to Main. This however prooved to be an issue because
+people were able to approve their own merges. I know you can turn this off with full mode but
+with student we had to add one each level to make sure you had someone else looking at your
+code.
