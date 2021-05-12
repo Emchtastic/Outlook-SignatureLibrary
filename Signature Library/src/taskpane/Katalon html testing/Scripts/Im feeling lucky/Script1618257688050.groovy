@@ -19,7 +19,7 @@ import org.openqa.selenium.Keys as Keys
 
 WebUI.openBrowser('')
 
-WebUI.navigateToUrl('file:///Users/gabrielesquibel/Desktop/untitled%20folder%203/main/Signature%20Library/src/taskpane/taskpane.html')
+WebUI.navigateToUrl('file:///C:/Users/alex8/OneDrive/Desktop/Scrum%20Squad/main/Signature%20Library/src/taskpane/taskpane.html')
 
 WebUI.click(findTestObject('Object Repository/Page_Contoso Task Pane Add-in/input_Close_imFeelingLucky'))
 

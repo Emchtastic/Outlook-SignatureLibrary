@@ -19,9 +19,14 @@ import org.openqa.selenium.Keys as Keys
 
 WebUI.openBrowser('')
 
-WebUI.navigateToUrl('file:///Users/gabrielesquibel/Desktop/untitled%20folder%203/main/Signature%20Library/src/taskpane/taskpane.html')
+WebUI.navigateToUrl('file:///C:/Users/alex8/OneDrive/Desktop/Scrum%20Squad/main/Signature%20Library/src/taskpane/taskpane.html')
 
-WebUI.click(findTestObject('Object Repository/Page_Contoso Task Pane Add-in/button_Add new signature'))
+WebUI.click(findTestObject('Object Repository/Page_MSU Signature Library Outlook add-in/button_Show current signature library'))
 
-WebUI.setText(findTestObject('Object Repository/Page_Contoso Task Pane Add-in/input_Store new signature_title_input'), 'can I type a title?')
+WebUI.click(findTestObject('Object Repository/Page_MSU Signature Library Outlook add-in/button_Add new signature'))
+
+WebUI.setText(findTestObject('Object Repository/Page_MSU Signature Library Outlook add-in/input_Store new signature_title_input'), 
+    'safdafsdfasdf')
+
+WebUI.click(findTestObject('Object Repository/Page_MSU Signature Library Outlook add-in/button_Add new signature to library'))
 

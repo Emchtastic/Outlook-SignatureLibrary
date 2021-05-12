@@ -19,7 +19,7 @@ import org.openqa.selenium.Keys as Keys
 
 WebUI.openBrowser('')
 
-WebUI.navigateToUrl('file:///Users/gabrielesquibel/Desktop/scrumSquad2/main/Signature%20Library/src/taskpane/taskpane.html')
+WebUI.navigateToUrl('file:///C:/Users/alex8/OneDrive/Desktop/Scrum%20Squad/main/Signature%20Library/src/taskpane/taskpane.html')
 
 WebUI.click(findTestObject('Object Repository/Page_MSU Signature Library Outlook add-in/button_Show current signature library'))
 
