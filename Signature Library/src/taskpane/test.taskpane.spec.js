@@ -235,7 +235,6 @@ describe("clearAllMocksa and resetModules ", () => {
     });
     it("appends signature objects to signatureList and dropdown from roaming storage", () => {
       var x = Office.context.roamingSettings.get("signatures")
-      console.log(x)
 
       const initialOptionsCount = document.getElementById("signatures").childElementCount;
       const taskpane = require("./taskpane");
